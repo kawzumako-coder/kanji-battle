@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>漢字バトル Ver.10.45</title>
+<title>漢字バトル Ver.10.68</title>
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;text-align:center;color:#222;background:linear-gradient(#fff1aa,#dff5ff)}
@@ -1234,16 +1234,1743 @@ body.waterQuest #finalCharacter img {
 
 <!-- Ver.10.45 fix: removed opaque black strip from dark complete-form image -->
 
-<link rel="manifest" href="./manifest.webmanifest">
-<meta name="theme-color" content="#6d28d9">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="./icon-192.png">
+<style id="v1049-wind-visible-fullbody">
+/* 風キャラ：選択画面・図鑑 */
+#characterChoices .charCard[data-char="6"] .charPortrait,
+#collectionGrid .charCard[data-char="6"] .charPortrait{
+  display:block !important;
+  width:100% !important;
+  height:190px !important;
+  max-width:250px !important;
+  object-fit:contain !important;
+  object-position:center bottom !important;
+  margin:0 auto 6px !important;
+  transform:none !important;
+  opacity:1;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+
+/* 未解放時は他キャラ同様のシルエット */
+#characterChoices .charCard[data-char="6"].lockedArt .charPortrait,
+#collectionGrid .charCard[data-char="6"].lockedArt .charPortrait{
+  filter:grayscale(1) brightness(0) !important;
+  -webkit-filter:grayscale(1) brightness(0) !important;
+  opacity:.62 !important;
+}
+
+/* 風キャラ進化：幼体・成体・完全体を全身表示 */
+.evolutionCutin.windCutin .cutinCard{
+  width:100% !important;
+  height:100% !important;
+  box-sizing:border-box !important;
+  padding:4dvh 12px 3dvh !important;
+  overflow:visible !important;
+}
+
+.evolutionCutin.windCutin .cutinImg,
+.evolutionCutin.windCutin.finalStage .cutinImg{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:90vw !important;
+  max-height:56dvh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:auto !important;
+  transform:none !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+
+/* 完全体は翼と尻尾まで余裕を持って収める */
+.evolutionCutin.windCutin.finalStage .cutinImg{
+  max-width:88vw !important;
+  max-height:53dvh !important;
+}
+
+@media(max-width:390px){
+  #characterChoices .charCard[data-char="6"] .charPortrait,
+  #collectionGrid .charCard[data-char="6"] .charPortrait{
+    height:165px !important;
+  }
+  .evolutionCutin.windCutin .cutinImg{
+    max-height:52dvh !important;
+  }
+  .evolutionCutin.windCutin.finalStage .cutinImg{
+    max-height:49dvh !important;
+  }
+}
+</style>
+
+
+<style id="v1050-wind-true-fullbody">
+/* ========= 風キャラ：全身表示を最終固定 ========= */
+
+/* キャラ選択画面・図鑑 */
+#characterChoices .charCard[data-char="6"] .charPortrait,
+#collectionGrid .charCard[data-char="6"] .charPortrait{
+  display:block !important;
+  width:100% !important;
+  height:190px !important;
+  max-width:250px !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto 6px !important;
+  transform:none !important;
+  scale:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  overflow:visible !important;
+}
+
+/* 未解放時は同じ幼体全身画像をシルエット化 */
+#characterChoices .charCard[data-char="6"].lockedArt .charPortrait,
+#collectionGrid .charCard[data-char="6"].lockedArt .charPortrait{
+  filter:grayscale(1) brightness(0) !important;
+  -webkit-filter:grayscale(1) brightness(0) !important;
+  opacity:.62 !important;
+}
+
+/* 進化カットイン */
+.evolutionCutin.windCutin .cutinCard{
+  width:100% !important;
+  height:100% !important;
+  box-sizing:border-box !important;
+  padding:4dvh 12px 3dvh !important;
+  overflow:visible !important;
+}
+
+.evolutionCutin.windCutin .cutinImg,
+.evolutionCutin.windCutin.finalStage .cutinImg{
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  max-width:88vw !important;
+  max-height:55dvh !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:auto !important;
+  transform:none !important;
+  scale:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  overflow:visible !important;
+}
+
+/* 完全体は翼・尻尾まで余白込みで収める */
+.evolutionCutin.windCutin.finalStage .cutinImg{
+  max-width:84vw !important;
+  max-height:52dvh !important;
+}
+
+/* タブレット・横幅が広い画面 */
+@media(min-width:600px){
+  #characterChoices .charCard[data-char="6"] .charPortrait,
+  #collectionGrid .charCard[data-char="6"] .charPortrait{
+    height:220px !important;
+  }
+
+  .evolutionCutin.windCutin .cutinImg{
+    max-width:72vw !important;
+    max-height:58dvh !important;
+  }
+
+  .evolutionCutin.windCutin.finalStage .cutinImg{
+    max-width:68vw !important;
+    max-height:55dvh !important;
+  }
+}
+
+/* 小さいスマホ */
+@media(max-width:390px){
+  #characterChoices .charCard[data-char="6"] .charPortrait,
+  #collectionGrid .charCard[data-char="6"] .charPortrait{
+    height:165px !important;
+  }
+
+  .evolutionCutin.windCutin .cutinImg{
+    max-width:88vw !important;
+    max-height:51dvh !important;
+  }
+
+  .evolutionCutin.windCutin.finalStage .cutinImg{
+    max-width:84vw !important;
+    max-height:48dvh !important;
+  }
+}
+</style>
+
+
+<style id="v1052-hidden-earth-character">
+/* 最終配置
+   火｜水
+   森｜雷
+   闇｜光
+   風｜大地 */
+#characterChoices{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+}
+#characterChoices .charCard[data-char="0"]{grid-column:1!important;grid-row:1!important}
+#characterChoices .charCard[data-char="1"]{grid-column:2!important;grid-row:1!important}
+#characterChoices .charCard[data-char="2"]{grid-column:1!important;grid-row:2!important}
+#characterChoices .charCard[data-char="3"]{grid-column:2!important;grid-row:2!important}
+#characterChoices .charCard[data-char="4"]{grid-column:1!important;grid-row:3!important}
+#characterChoices .charCard[data-char="5"]{grid-column:2!important;grid-row:3!important}
+#characterChoices .charCard[data-char="6"]{grid-column:1!important;grid-row:4!important}
+#characterChoices .charCard[data-char="7"]{grid-column:2!important;grid-row:4!important}
+
+/* 大地キャラ：火キャラと同じカード表示。
+   幼体・成体・完全体すべて全身を切らずに表示する。 */
+#characterChoices .charCard[data-char="7"] .charPortrait,
+#collectionGrid .charCard[data-char="7"] .charPortrait{
+  display:block !important;
+  width:100% !important;
+  height:190px !important;
+  max-width:250px !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto 6px !important;
+  transform:none !important;
+  scale:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  overflow:visible !important;
+}
+
+/* 未解放は幼体の完全シルエット */
+#characterChoices .charCard[data-char="7"].lockedArt .charPortrait,
+#collectionGrid .charCard[data-char="7"].lockedArt .charPortrait{
+  filter:grayscale(1) brightness(0) !important;
+  -webkit-filter:grayscale(1) brightness(0) !important;
+  opacity:.62 !important;
+}
+
+/* タブレット */
+@media(min-width:600px){
+  #characterChoices .charCard[data-char="7"] .charPortrait,
+  #collectionGrid .charCard[data-char="7"] .charPortrait{
+    height:220px !important;
+  }
+}
+
+/* 小さいスマホ */
+@media(max-width:390px){
+  #characterChoices .charCard[data-char="7"] .charPortrait,
+  #collectionGrid .charCard[data-char="7"] .charPortrait{
+    height:165px !important;
+  }
+}
+</style>
+
+
+<style id="v1053-hidden-poison-character">
+/* 配置:
+   火 ｜ 水
+   森 ｜ 雷
+   闇 ｜ 光
+   風 ｜ 大地
+   毒 ｜ （空き）
+*/
+#characterChoices .charCard[data-char="0"]{grid-column:1!important;grid-row:1!important}
+#characterChoices .charCard[data-char="1"]{grid-column:2!important;grid-row:1!important}
+#characterChoices .charCard[data-char="2"]{grid-column:1!important;grid-row:2!important}
+#characterChoices .charCard[data-char="3"]{grid-column:2!important;grid-row:2!important}
+#characterChoices .charCard[data-char="4"]{grid-column:1!important;grid-row:3!important}
+#characterChoices .charCard[data-char="5"]{grid-column:2!important;grid-row:3!important}
+#characterChoices .charCard[data-char="6"]{grid-column:1!important;grid-row:4!important}
+#characterChoices .charCard[data-char="7"]{grid-column:2!important;grid-row:4!important}
+#characterChoices .charCard[data-char="8"]{grid-column:1!important;grid-row:5!important}
+
+/* 毒キャラも他キャラ同様に全身を収めて表示 */
+#characterChoices .charCard[data-char="8"] .charPortrait,
+#collectionGrid .charCard[data-char="8"] .charPortrait{
+  display:block !important;
+  width:100% !important;
+  height:190px !important;
+  max-width:250px !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto 6px !important;
+  transform:none !important;
+  scale:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  overflow:visible !important;
+}
+
+#characterChoices .charCard[data-char="8"].lockedArt .charPortrait,
+#collectionGrid .charCard[data-char="8"].lockedArt .charPortrait{
+  filter:grayscale(1) brightness(0) !important;
+  -webkit-filter:grayscale(1) brightness(0) !important;
+  opacity:.62 !important;
+}
+
+@media(min-width:600px){
+  #characterChoices .charCard[data-char="8"] .charPortrait,
+  #collectionGrid .charCard[data-char="8"] .charPortrait{
+    height:220px !important;
+  }
+}
+
+@media(max-width:390px){
+  #characterChoices .charCard[data-char="8"] .charPortrait,
+  #collectionGrid .charCard[data-char="8"] .charPortrait{
+    height:165px !important;
+  }
+}
+</style>
+
+
+<style id="v1054-hidden-sound-character">
+/* 追加配置: 毒の右隣に音キャラ */
+#characterChoices .charCard[data-char="9"]{grid-column:2!important;grid-row:5!important}
+
+#characterChoices .charCard[data-char="9"] .charPortrait,
+#collectionGrid .charCard[data-char="9"] .charPortrait{
+  display:block !important;
+  width:100% !important;
+  height:190px !important;
+  max-width:250px !important;
+  object-fit:contain !important;
+  object-position:center center !important;
+  margin:0 auto 6px !important;
+  transform:none !important;
+  scale:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+  background:transparent !important;
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+  overflow:visible !important;
+}
+
+#characterChoices .charCard[data-char="9"].lockedArt .charPortrait,
+#collectionGrid .charCard[data-char="9"].lockedArt .charPortrait{
+  filter:grayscale(1) brightness(0) !important;
+  -webkit-filter:grayscale(1) brightness(0) !important;
+  opacity:.62 !important;
+}
+
+@media(min-width:600px){
+  #characterChoices .charCard[data-char="9"] .charPortrait,
+  #collectionGrid .charCard[data-char="9"] .charPortrait{height:220px !important;}
+}
+@media(max-width:390px){
+  #characterChoices .charCard[data-char="9"] .charPortrait,
+  #collectionGrid .charCard[data-char="9"] .charPortrait{height:165px !important;}
+}
+</style>
+
+<style id="v1055-collection-detail-cards">
+.collectionGuide{
+  line-height:1.7;
+  margin-bottom:18px;
+}
+#collectionGrid .charCard.collectionOpen{
+  cursor:pointer;
+  position:relative;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+#collectionGrid .charCard.collectionOpen::after{
+  content:"詳細 ▶";
+  position:absolute;
+  right:10px;
+  top:10px;
+  font-size:12px;
+  font-weight:900;
+  padding:4px 8px;
+  border:2px solid #292929;
+  border-radius:999px;
+  background:#fff4b5;
+}
+#collectionGrid .charCard.collectionOpen:active{
+  transform:scale(.98);
+}
+
+#collectionDetailScreen{
+  min-height:calc(100vh - 70px);
+  padding-bottom:34px;
+}
+.collectionDetailTop{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-bottom:8px;
+}
+.collectionDetailTop h2{
+  margin:0 0 5px;
+}
+#collectionDetailBack{
+  flex:0 0 auto;
+}
+.collectionAttributeChip{
+  display:inline-block;
+  padding:5px 12px;
+  border:2px solid #292929;
+  border-radius:999px;
+  background:#fff4b5;
+  font-weight:900;
+}
+.collectionDetailHint{
+  margin:14px 0 18px;
+  text-align:center;
+  font-weight:700;
+}
+
+.collectionEvolutionCards{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  align-items:stretch;
+}
+.evolutionBookCard{
+  position:relative;
+  appearance:none;
+  width:100%;
+  min-width:0;
+  padding:10px 10px 13px;
+  border:5px solid #252525;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff8d7 0%,#f4e8b5 14%,#e8d197 100%);
+  box-shadow:0 7px 0 #252525,0 14px 25px rgba(0,0,0,.16);
+  color:#222;
+  cursor:pointer;
+  overflow:visible;
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+}
+.evolutionBookCard::before{
+  content:"";
+  position:absolute;
+  inset:8px;
+  border:2px solid rgba(92,62,20,.55);
+  border-radius:9px;
+  pointer-events:none;
+}
+.evolutionBookCard:hover{
+  filter:brightness(1.025);
+}
+.evolutionBookCard.active{
+  transform:translateY(-14px) scale(1.025);
+  box-shadow:0 12px 0 #252525,0 25px 36px rgba(0,0,0,.28);
+  z-index:3;
+}
+.evolutionBookStage{
+  position:relative;
+  z-index:1;
+  margin:0 auto 8px;
+  width:max-content;
+  max-width:90%;
+  padding:4px 13px;
+  border:2px solid #333;
+  border-radius:999px;
+  background:#fff;
+  font-size:clamp(15px,2.4vw,20px);
+  font-weight:1000;
+}
+.evolutionBookArt{
+  position:relative;
+  z-index:1;
+  height:clamp(210px,32vw,350px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 3px 10px;
+  border:3px solid #4a3b20;
+  border-radius:7px;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(255,255,255,.95),rgba(255,250,218,.78) 48%,rgba(221,203,142,.72) 100%);
+  overflow:hidden;
+}
+.evolutionBookArt img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center center;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  clip-path:none;
+  -webkit-clip-path:none;
+  filter:drop-shadow(0 6px 6px rgba(0,0,0,.2));
+}
+.evolutionBookName{
+  position:relative;
+  z-index:1;
+  min-height:2.5em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 8px;
+  border-top:3px solid #594526;
+  border-bottom:3px solid #594526;
+  background:rgba(255,255,255,.58);
+  font-size:clamp(16px,2.7vw,24px);
+  line-height:1.15;
+  font-weight:1000;
+}
+.evolutionBookTap{
+  position:relative;
+  z-index:1;
+  margin-top:9px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.collectionLorePanel{
+  margin:34px auto 0;
+  max-width:860px;
+  padding:22px 24px;
+  border:4px solid #252525;
+  border-radius:16px;
+  background:linear-gradient(180deg,#fff8cc,#fff);
+  box-shadow:0 8px 0 #252525,0 18px 35px rgba(0,0,0,.16);
+  text-align:left;
+  animation:lorePop .25s ease both;
+}
+.collectionLoreStage{
+  display:inline-block;
+  padding:5px 10px;
+  border:2px solid #252525;
+  border-radius:999px;
+  background:#ffe27a;
+  font-weight:900;
+}
+.collectionLorePanel h2{
+  margin:12px 0 9px;
+  font-size:clamp(24px,5vw,38px);
+}
+.collectionLorePanel p{
+  margin:0;
+  font-size:clamp(16px,3vw,22px);
+  line-height:1.75;
+  font-weight:650;
+}
+@keyframes lorePop{
+  from{opacity:0;transform:translateY(14px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@media(max-width:700px){
+  .collectionDetailTop{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:10px;
+  }
+  .collectionEvolutionCards{
+    grid-template-columns:1fr;
+    gap:23px;
+  }
+  .evolutionBookCard{
+    max-width:430px;
+    margin:0 auto;
+  }
+  .evolutionBookArt{
+    height:min(75vw,350px);
+  }
+  .evolutionBookCard.active{
+    transform:translateY(-8px) scale(1.015);
+  }
+}
+</style>
+
+
+<style id="v1056-collection-overlay-details">
+/* 旧下部説明パネルは廃止。説明は各キャラカードの真上に表示する */
+#collectionLorePanel{
+  display:none !important;
+}
+
+/* カードは説明レイヤーを内包するため、前面表示を許可 */
+.evolutionBookCard{
+  isolation:isolate;
+  overflow:hidden !important;
+}
+
+/* 詳細表示中は少しだけ浮かせる */
+.evolutionBookCard.active{
+  transform:translateY(-10px) scale(1.018) !important;
+  box-shadow:0 12px 0 #252525,0 24px 38px rgba(0,0,0,.28) !important;
+  z-index:5 !important;
+}
+
+/* キャラの真上に出る説明レイヤー */
+.evolutionBookOverlay{
+  position:absolute;
+  inset:0;
+  z-index:20;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:26px 22px;
+  box-sizing:border-box;
+  border-radius:11px;
+
+  /* キャラが見える透明度を残しつつ文字を読みやすくする */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(12,14,24,.26) 0%,
+      rgba(12,14,24,.38) 45%,
+      rgba(12,14,24,.50) 100%
+    );
+
+  color:#fff;
+  text-align:center;
+  cursor:pointer;
+  animation:collectionOverlayIn .20s ease both;
+}
+
+.evolutionBookOverlay.hidden{
+  display:none !important;
+}
+
+/* 属性・進化段階 */
+.evolutionOverlayStage{
+  display:inline-block;
+  max-width:92%;
+  padding:6px 12px;
+  border:2px solid rgba(255,255,255,.92);
+  border-radius:999px;
+  background:rgba(15,15,20,.46);
+  color:#fff7c8;
+  font-size:clamp(14px,2.4vw,19px);
+  font-weight:900;
+  line-height:1.25;
+  text-shadow:0 2px 4px rgba(0,0,0,.95);
+  box-shadow:0 2px 7px rgba(0,0,0,.25);
+}
+
+/* キャラ名 */
+.evolutionOverlayName{
+  max-width:95%;
+  color:#fff;
+  font-size:clamp(23px,4vw,34px);
+  font-weight:1000;
+  line-height:1.18;
+  text-shadow:
+    0 2px 3px #000,
+    0 0 7px rgba(0,0,0,.95);
+}
+
+/* 説明本文 */
+.evolutionOverlayText{
+  width:100%;
+  max-width:95%;
+  padding:12px 14px;
+  box-sizing:border-box;
+  border-radius:12px;
+  background:rgba(0,0,0,.32);
+  color:#fff;
+  font-size:clamp(16px,2.8vw,22px);
+  font-weight:750;
+  line-height:1.65;
+  letter-spacing:.02em;
+  text-align:left;
+  text-shadow:0 2px 3px rgba(0,0,0,1);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.20);
+}
+
+/* 閉じる案内 */
+.evolutionOverlayClose{
+  margin-top:2px;
+  padding:5px 11px;
+  border-radius:999px;
+  background:rgba(255,255,255,.84);
+  color:#222;
+  font-size:13px;
+  font-weight:900;
+  text-shadow:none;
+}
+
+/* 説明表示中もキャラ自体は透けて見える */
+.evolutionBookCard.active .evolutionBookArt img{
+  filter:drop-shadow(0 6px 6px rgba(0,0,0,.18)) !important;
+}
+
+@keyframes collectionOverlayIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+/* スマホでは文字を少し詰めて、説明がカード内に収まりやすくする */
+@media(max-width:700px){
+  .evolutionBookOverlay{
+    padding:18px 16px;
+    gap:8px;
+  }
+  .evolutionOverlayName{
+    font-size:clamp(22px,7vw,31px);
+  }
+  .evolutionOverlayText{
+    font-size:clamp(15px,4.5vw,20px);
+    line-height:1.55;
+    padding:10px 12px;
+  }
+}
+</style>
+
+
+<style id="v1058-hidden-dream-character">
+#characterChoices .charCard[data-char="10"] .charPortrait,
+#collectionGrid .charCard[data-char="10"] .charPortrait{
+  height:220px !important;
+  object-fit:contain !important;
+  object-position:center bottom !important;
+}
+#collectionEvolutionCards .evolutionBookCard .evolutionBookArt img{
+  object-fit:contain !important;
+}
+@media(max-width:430px){
+  #characterChoices .charCard[data-char="10"] .charPortrait,
+  #collectionGrid .charCard[data-char="10"] .charPortrait{height:175px !important;}
+}
+</style>
+
+
+<style id="v1061-single-battle-character-css">
+/* ===== みんなでバトル：キャラ選択 ===== */
+.battleCharGuide{font-weight:800;line-height:1.6}
+.battleCharProgress{
+  display:inline-block;margin:6px auto 12px;padding:6px 14px;
+  border:3px solid #222;border-radius:999px;background:#fff4a8;font-weight:1000
+}
+.battleUnlockedGrid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;margin:12px 0 16px
+}
+.battlePickCard{
+  min-width:0;margin:0;padding:9px 6px 10px;border:4px solid #222;border-radius:18px;
+  background:linear-gradient(145deg,#fff,#e9f7ff);box-shadow:0 5px 0 #222;
+  display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer
+}
+.battlePickCard img{
+  width:100%;height:150px;object-fit:contain;object-position:center bottom;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  box-shadow:none!important;filter:drop-shadow(0 5px 4px #0004)
+}
+.battlePickCard b{font-size:clamp(16px,4vw,22px);line-height:1.15}
+.battlePickCard span{font-size:12px;color:#555;font-weight:800}
+.battlePickCard.selected{
+  outline:6px solid #ffd42d;background:linear-gradient(145deg,#fff6a8,#ffd85c);
+  transform:translateY(-3px)
+}
+.battleNoChars{
+  margin:18px 0;padding:18px;border:4px solid #222;border-radius:18px;
+  background:#fff4d6;font-weight:900;line-height:1.65
+}
+.battleCharSummary{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:8px 0 14px}
+.battleChosenChip{
+  padding:5px 9px;border:2px solid #222;border-radius:999px;background:#e9f8ff;
+  font-size:12px;font-weight:900
+}
+
+/* プレイヤーの番に選択キャラを表示 */
+.battleWhoRow{display:flex;align-items:center;justify-content:center;gap:10px;margin:2px auto 4px}
+.battleWhoRow h2{margin:0}
+.battleMiniChar{
+  width:82px;height:82px;object-fit:contain;object-position:center;
+  filter:drop-shadow(0 5px 3px #0004)
+}
+.battleMiniName{font-size:14px;font-weight:900;color:#555}
+
+/* 対戦準備のキャラ一覧 */
+.battleReadyRoster{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px auto 14px;max-width:650px
+}
+.battleReadyFighter{
+  width:112px;padding:6px;border:3px solid #222;border-radius:15px;background:#fff;
+  display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:0 4px 0 #222
+}
+.battleReadyFighter img{width:96px;height:96px;object-fit:contain}
+.battleReadyFighter b{font-size:14px}
+.battleReadyFighter span{font-size:11px;color:#555;font-weight:800}
+
+/* ===== 勝敗フェーズ ===== */
+#result .arena{
+  min-height:430px;
+  display:flex;align-items:center;justify-content:center;
+  background:
+    radial-gradient(circle at 50% 46%,#fff8bd 0 11%,#dff4ff 37%,#c9ecff 70%,#fff 100%);
+}
+#result .fighters{
+  width:100%;min-height:330px;
+  display:flex;align-items:flex-end;justify-content:center;gap:6px;flex-wrap:nowrap;
+  position:relative;z-index:3
+}
+.battleCharacterFighter{
+  flex:0 1 calc((100% - 12px) / var(--fighterCount,2));
+  width:auto;
+  min-width:0;
+  max-width:180px;
+  transform-origin:center bottom;
+  transition:filter .25s,opacity .25s
+}
+.fighterCharacterFrame{
+  height:min(34vw,210px);
+  min-height:110px;
+  display:flex;align-items:flex-end;justify-content:center
+}
+.battleCharacterFighter img{
+  width:100%!important;height:100%!important;max-width:180px!important;max-height:210px!important;
+  object-fit:contain!important;object-position:center bottom!important;
+  border:0!important;border-radius:0!important;background:transparent!important;
+  filter:drop-shadow(0 8px 5px #0005)!important
+}
+.fighterCharName{font-size:clamp(11px,2.8vw,17px);font-weight:1000;line-height:1.1;margin:3px 0}
+.battleCharacterFighter .fname{font-size:clamp(13px,3vw,19px)}
+.battleCharacterFighter .power{font-size:clamp(12px,3vw,18px)}
+
+/* ドタバタと中央へぶつかる */
+.battleCharacterFighter.brawl{
+  animation:battleBrawl 1.45s cubic-bezier(.36,.07,.19,.97) var(--delay,0s) both
+}
+@keyframes battleBrawl{
+  0%{transform:translate(0,0) rotate(0) scale(1)}
+  12%{transform:translate(calc(var(--chargeX) * .16),-14px) rotate(-7deg) scale(1.02)}
+  27%{transform:translate(calc(var(--chargeX) * .45),5px) rotate(8deg) scale(1.04)}
+  43%{transform:translate(calc(var(--chargeX) * .78),-10px) rotate(-9deg) scale(1.07)}
+  58%{transform:translate(var(--chargeX),2px) rotate(8deg) scale(1.11)}
+  69%{transform:translate(calc(var(--chargeX) * .82),-6px) rotate(-7deg) scale(1.07)}
+  82%{transform:translate(var(--chargeX),2px) rotate(5deg) scale(1.1)}
+  100%{transform:translate(0,0) rotate(0) scale(1)}
+}
+.arenaImpact{animation:arenaShake .42s linear 2}
+@keyframes arenaShake{
+  0%,100%{transform:translate(0)}
+  20%{transform:translate(-8px,4px)}
+  40%{transform:translate(8px,-4px)}
+  60%{transform:translate(-6px,-2px)}
+  80%{transform:translate(6px,3px)}
+}
+.battleCrashEffect{font-size:clamp(70px,18vw,130px)!important}
+
+/* 勝者がぴょんぴょん跳ねる */
+.battleWinnerJump{
+  animation:winnerHop .72s cubic-bezier(.2,.7,.3,1.3) 3 both!important;
+  z-index:8
+}
+@keyframes winnerHop{
+  0%,100%{transform:translateY(0) scale(1.08) rotate(0)}
+  42%{transform:translateY(-62px) scale(1.18) rotate(-5deg)}
+  64%{transform:translateY(-15px) scale(1.12) rotate(4deg)}
+}
+.battleLoserWobble{animation:loserWobble .42s ease 2;opacity:.76}
+@keyframes loserWobble{
+  0%,100%{transform:rotate(0)}
+  25%{transform:rotate(-6deg) translateX(-4px)}
+  75%{transform:rotate(6deg) translateX(4px)}
+}
+
+.battleResultActions{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:14px
+}
+.battleResultActions.hidden{display:none!important}
+.battleResultActions button{font-size:clamp(16px,4vw,22px);padding:10px 14px}
+
+/* 10問用の旧ラウンド結果はこのモードでは使用しない */
+#roundResultOverlay{display:none!important}
+
+@media(max-width:430px){
+  .battleUnlockedGrid{gap:7px}
+  .battlePickCard img{height:128px}
+  #result .arena{min-height:390px;padding-left:2px!important;padding-right:2px!important}
+  #result .fighters{gap:2px;min-height:300px}
+  .battleCharacterFighter{width:auto;min-width:0;max-width:132px}
+  .fighterCharacterFrame{height:min(39vw,165px)}
+}
+</style>
+
+
+<style id="v1062-battle-layout-stage-picker">
+/* ===== 進化形を選ぶ透過レイヤー ===== */
+.battleStageOverlay{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  box-sizing:border-box;
+  background:rgba(10,18,30,.16);
+  backdrop-filter:blur(1.5px);
+  -webkit-backdrop-filter:blur(1.5px);
+}
+.battleStageOverlay.hidden{display:none!important}
+.battleStageOverlayInner{
+  width:min(960px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  padding:14px 10px 18px;
+  box-sizing:border-box;
+  text-align:center;
+  background:transparent;
+}
+.battleStageQuestion{
+  display:inline-block;
+  margin:0 auto 6px;
+  padding:7px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.88);
+  border:3px solid #222;
+  box-shadow:0 5px 0 rgba(0,0,0,.24);
+  font-size:clamp(25px,5vw,42px);
+  line-height:1.1;
+  font-weight:1000;
+}
+.battleStageCharacterName{
+  margin:8px 0 12px;
+  color:#fff;
+  font-size:clamp(17px,3vw,24px);
+  font-weight:1000;
+  text-shadow:0 2px 5px #000,0 0 8px #000;
+}
+.battleStageChoices{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+  align-items:end;
+}
+.battleStageChoice{
+  min-width:0;
+  padding:4px 3px 8px;
+  border:0;
+  box-shadow:none;
+  background:transparent;
+  color:#fff;
+  cursor:pointer;
+  text-shadow:0 2px 5px #000,0 0 8px #000;
+  transform-origin:center bottom;
+  transition:transform .18s ease,filter .18s ease;
+}
+.battleStageChoice:active{transform:scale(.95)}
+.battleStageChoice.selected{transform:translateY(-8px) scale(1.05)}
+.battleStageChoice img{
+  display:block;
+  width:100%;
+  height:min(42vh,360px);
+  object-fit:contain;
+  object-position:center bottom;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  filter:drop-shadow(0 9px 6px rgba(0,0,0,.45));
+}
+.battleStageChoice b{
+  display:block;
+  margin-top:4px;
+  font-size:clamp(12px,2.6vw,20px);
+  line-height:1.15;
+}
+.battleStageTag{
+  display:inline-block;
+  margin-bottom:2px;
+  padding:4px 9px;
+  border:2px solid #222;
+  border-radius:999px;
+  background:rgba(255,255,255,.9);
+  color:#222;
+  text-shadow:none;
+  font-size:clamp(12px,2.4vw,17px);
+  font-weight:1000;
+}
+.battleStageCancelBtn{
+  margin:12px auto 0;
+  padding:8px 13px;
+  border:3px solid #222;
+  background:rgba(255,255,255,.9);
+  font-weight:900;
+}
+
+/* ===== 勝敗画面：アナウンスをキャラの真上へ ===== */
+#result .arena{
+  min-height:355px!important;
+  display:block!important;
+  padding:12px 8px 14px!important;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+.battleArenaAnnouncements{
+  position:relative;
+  z-index:8;
+  min-height:88px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:2px;
+  margin:0 auto 2px;
+  text-align:center;
+  pointer-events:none;
+}
+#result #special{
+  margin:0!important;
+  font-size:clamp(19px,4.4vw,31px)!important;
+  line-height:1.15;
+}
+.battlePhaseText{
+  min-height:1.35em;
+  margin:3px 0;
+  font-size:clamp(14px,3.5vw,22px);
+  font-weight:900;
+  color:#444;
+}
+#result #winner{
+  margin:2px 0 0!important;
+  min-height:1.25em;
+  font-size:clamp(22px,5vw,36px)!important;
+  line-height:1.12;
+  color:#222;
+  text-shadow:0 2px 0 #fff;
+}
+#result .fighters{
+  min-height:235px!important;
+  height:auto!important;
+  align-items:flex-end!important;
+  justify-content:center!important;
+  gap:4px!important;
+  flex-wrap:nowrap!important;
+  position:relative;
+  z-index:3;
+}
+#result .battleCharacterFighter{
+  flex:1 1 0!important;
+  width:auto!important;
+  max-width:180px!important;
+  min-width:0!important;
+}
+#result .fighterCharacterFrame{
+  height:min(29vw,190px)!important;
+  min-height:90px!important;
+}
+#result .battleCharacterFighter img{
+  max-height:190px!important;
+}
+
+@media(max-width:430px){
+  .battleStageOverlay{padding:8px;background:rgba(10,18,30,.13)}
+  .battleStageOverlayInner{width:100%;padding:8px 2px 12px}
+  .battleStageChoices{gap:2px}
+  .battleStageChoice{padding-left:0;padding-right:0}
+  .battleStageChoice img{height:min(34vh,260px)}
+  .battleStageQuestion{font-size:28px;padding:6px 15px}
+
+  #result .arena{min-height:330px!important;padding:8px 3px 10px!important}
+  .battleArenaAnnouncements{min-height:82px;margin-bottom:0}
+  #result .fighters{min-height:215px!important;gap:1px!important}
+  #result .fighterCharacterFrame{height:min(31vw,145px)!important}
+  #result .battleCharacterFighter img{max-height:145px!important}
+  #result .fighterCharName{font-size:clamp(10px,2.6vw,14px)!important}
+  #result .battleCharacterFighter .fname{font-size:clamp(11px,2.8vw,15px)!important}
+  #result .battleCharacterFighter .power{font-size:clamp(10px,2.7vw,14px)!important}
+}
+</style>
+
+
+<style id="v1063-stage-picker-size-layout-fix">
+/* =========================================================
+   進化形選択レイヤーのサイズ・間隔を統一
+   幼体 < 成体 < 完全体 の順に自然に大きく表示
+   ========================================================= */
+
+/* 3体共通：ラベル→キャラ→名前を一続きに並べる */
+#battleStageChoices .battleStageChoice{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:flex-end !important;
+  gap:0 !important;
+  padding:2px 4px 6px !important;
+  box-sizing:border-box !important;
+}
+
+/* 「幼体 / 成体 / 完全体」はキャラのすぐ真上 */
+#battleStageChoices .battleStageTag{
+  order:1;
+  margin:0 0 1px !important;
+  padding:4px 10px !important;
+  line-height:1.15 !important;
+  position:relative;
+  z-index:3;
+}
+
+/* 画像は固定の巨大ボックスを廃止して、段階ごとに自然な大きさへ */
+#battleStageChoices .battleStageChoice img{
+  order:2;
+  display:block !important;
+  width:auto !important;
+  height:auto !important;
+  object-fit:contain !important;
+  object-position:center bottom !important;
+  margin:0 auto !important;
+  padding:0 !important;
+  flex:0 0 auto !important;
+  transform-origin:center bottom !important;
+}
+
+/* 幼体は小さめ */
+#battleStageChoices .battleStageChoice[data-stage="1"] img{
+  max-width:78% !important;
+  max-height:235px !important;
+}
+/* 成体は中くらい */
+#battleStageChoices .battleStageChoice[data-stage="2"] img{
+  max-width:90% !important;
+  max-height:295px !important;
+}
+/* 完全体は一番大きく */
+#battleStageChoices .battleStageChoice[data-stage="3"] img{
+  max-width:100% !important;
+  max-height:355px !important;
+}
+
+/* 名前も画像の直下へ */
+#battleStageChoices .battleStageChoice b{
+  order:3;
+  margin:2px 0 0 !important;
+  min-height:0 !important;
+  line-height:1.12 !important;
+}
+
+/* 横3列が使える画面では、下端を揃えて進化の成長が分かるように */
+@media(min-width:701px){
+  #battleStageChoices{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:12px !important;
+    align-items:end !important;
+  }
+  #battleStageChoices .battleStageChoice{
+    min-height:405px !important;
+  }
+}
+
+/* スマホは無理に横3列にせず、図鑑のように縦1列表示 */
+@media(max-width:700px){
+  .battleStageOverlay{
+    align-items:flex-start !important;
+    padding:8px 7px 14px !important;
+    overflow:hidden !important;
+  }
+  .battleStageOverlayInner{
+    width:100% !important;
+    max-height:96dvh !important;
+    padding:5px 4px 18px !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+  }
+  .battleStageQuestion{
+    margin-bottom:3px !important;
+    font-size:clamp(26px,8vw,34px) !important;
+  }
+  .battleStageCharacterName{
+    margin:5px 0 7px !important;
+    font-size:clamp(17px,5vw,22px) !important;
+  }
+  #battleStageChoices{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:5px !important;
+    align-items:start !important;
+    width:min(460px,100%) !important;
+    margin:0 auto !important;
+  }
+  #battleStageChoices .battleStageChoice{
+    width:100% !important;
+    min-height:0 !important;
+    padding:3px 3px 7px !important;
+  }
+
+  /* スマホでの視覚サイズを段階ごとに明確化 */
+  #battleStageChoices .battleStageChoice[data-stage="1"] img{
+    max-width:min(54vw,205px) !important;
+    max-height:150px !important;
+  }
+  #battleStageChoices .battleStageChoice[data-stage="2"] img{
+    max-width:min(66vw,255px) !important;
+    max-height:190px !important;
+  }
+  #battleStageChoices .battleStageChoice[data-stage="3"] img{
+    max-width:min(78vw,315px) !important;
+    max-height:235px !important;
+  }
+
+  #battleStageChoices .battleStageTag{
+    margin-bottom:0 !important;
+    font-size:15px !important;
+  }
+  #battleStageChoices .battleStageChoice b{
+    margin-top:1px !important;
+    font-size:clamp(15px,4.5vw,20px) !important;
+  }
+  .battleStageCancelBtn{
+    margin-top:8px !important;
+  }
+}
+
+/* かなり小さい端末ではさらに圧縮 */
+@media(max-width:380px){
+  #battleStageChoices .battleStageChoice[data-stage="1"] img{
+    max-height:132px !important;
+  }
+  #battleStageChoices .battleStageChoice[data-stage="2"] img{
+    max-height:168px !important;
+  }
+  #battleStageChoices .battleStageChoice[data-stage="3"] img{
+    max-height:205px !important;
+  }
+}
+</style>
+
+
+<style id="v1064-suspense-result-cleanup">
+/* 勝敗が出る前に採点結果を見せない。結果画面ではパラメーター表示を廃止。 */
+#result .scoregrid,
+#result #scoregrid,
+#result .score{
+  display:none !important;
+}
+
+/* キャラ名だけ残し、点数・POWERなどの数値は表示しない */
+#result .battleCharacterFighter .power{
+  display:none !important;
+}
+
+/* 勝敗演出を主役にするため、アリーナ下の余白を整理 */
+#result .arena{
+  margin-bottom:14px !important;
+}
+#result .battleResultActions{
+  margin-top:18px !important;
+}
+
+/* 「どっちが勝つ…！？」が少し脈打つ */
+#result .battlePhaseText{
+  animation:battlePhasePulse .72s ease-in-out infinite alternate;
+}
+@keyframes battlePhasePulse{
+  from{transform:scale(1);opacity:.82}
+  to{transform:scale(1.045);opacity:1}
+}
+#result #winner:not(:empty) + *{
+  animation:none;
+}
+</style>
+
+
+<style id="v1065-goddess-mode-css">
+/* ===== 成長クエスト上部のモード切替 ===== */
+#questSetup .questSetupTopBtns{
+  display:flex !important;
+  justify-content:space-between !important;
+  align-items:flex-start !important;
+  gap:10px !important;
+  flex-wrap:wrap !important;
+}
+.questRealmSwitch{
+  display:flex;
+  gap:5px;
+  padding:5px;
+  border:4px solid #272727;
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 5px 0 #272727;
+  margin-left:auto;
+}
+.questRealmSwitch.hidden{display:none !important}
+.questRealmSwitch button{
+  margin:0 !important;
+  min-height:44px !important;
+  padding:7px 10px !important;
+  border:3px solid transparent !important;
+  border-radius:12px !important;
+  box-shadow:none !important;
+  background:#eee !important;
+  font-size:clamp(12px,3vw,17px) !important;
+  line-height:1.15 !important;
+  font-weight:1000 !important;
+}
+.questRealmSwitch button.active{
+  border-color:#222 !important;
+  background:linear-gradient(180deg,#fff5a6,#ffd53c) !important;
+  transform:translateY(-1px);
+}
+
+/* ===== 女神モード設定画面 ===== */
+#questSetup.goddessRealm{
+  background:
+    radial-gradient(circle at 50% 25%,rgba(255,239,176,.48),transparent 34%),
+    linear-gradient(180deg,#fff,#f9f4ff 70%,#eef4ff);
+}
+#questSetup.goddessRealm #questSetupTitle{
+  font-size:clamp(29px,7vw,44px);
+  margin:16px 0 15px;
+}
+#questSetup.goddessRealm #questPartnerTitle{
+  display:block;
+  font-size:clamp(23px,5.5vw,32px);
+  margin-bottom:10px;
+}
+.goddessChallengeNotice{
+  width:min(94%,600px);
+  margin:12px auto 16px;
+  padding:13px 15px;
+  box-sizing:border-box;
+  border:4px solid #38224f;
+  border-radius:18px;
+  background:linear-gradient(145deg,#fff7c7,#f1e2ff);
+  font-size:clamp(15px,3.7vw,20px);
+  font-weight:900;
+  line-height:1.55;
+  box-shadow:0 5px 0 #38224f;
+}
+.goddessChallengeNotice.hidden{display:none!important}
+
+.goddessTrialGrid{
+  display:flex !important;
+  justify-content:center !important;
+}
+.goddessTrialCard{
+  width:min(82vw,330px);
+  min-height:390px;
+  margin:10px auto 18px;
+  padding:16px;
+  box-sizing:border-box;
+  border:5px solid #272727;
+  border-radius:24px;
+  background:linear-gradient(160deg,#fff8c9,#efe1ff 58%,#dfefff);
+  box-shadow:0 8px 0 #272727;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  cursor:pointer;
+}
+.goddessTrialCard.selected{
+  outline:7px solid #ffd63c;
+  transform:translateY(-3px);
+}
+.goddessFireSeal{
+  position:relative;
+  width:210px;
+  height:250px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+}
+.goddessFireSeal::before,
+.goddessFireSeal::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  inset:12px 0 28px;
+  border:4px solid rgba(111,76,143,.65);
+  box-shadow:0 0 18px rgba(161,109,255,.6),inset 0 0 22px rgba(255,212,70,.3);
+}
+.goddessFireSeal::after{
+  inset:36px 24px 52px;
+  border-style:dashed;
+  animation:goddessSealSpin 8s linear infinite;
+}
+.goddessFireIcon{
+  position:relative;
+  z-index:2;
+  font-size:108px;
+  filter:grayscale(1) brightness(.25);
+  text-shadow:0 8px 12px rgba(0,0,0,.3);
+}
+.goddessTrialCard.unlocked .goddessFireIcon{
+  filter:none;
+  animation:goddessUnlockedGlow 1s ease-in-out infinite alternate;
+}
+.goddessQuestionMark{
+  position:absolute;
+  z-index:3;
+  font-size:66px;
+  font-weight:1000;
+  color:#fff;
+  text-shadow:0 4px 0 #222,0 0 12px #000;
+}
+.goddessTrialCard.unlocked .goddessQuestionMark{display:none}
+.goddessTrialCard b{
+  font-size:clamp(25px,6vw,34px);
+  line-height:1.2;
+}
+.goddessTrialCard span{
+  margin-top:8px;
+  font-size:clamp(15px,3.7vw,20px);
+  font-weight:850;
+}
+@keyframes goddessSealSpin{to{transform:rotate(360deg)}}
+@keyframes goddessUnlockedGlow{
+  from{transform:scale(1);filter:drop-shadow(0 0 3px #ff8a00)}
+  to{transform:scale(1.08);filter:drop-shadow(0 0 17px #ffd53c)}
+}
+
+/* 女神モードのクリア表示。火の女神本体イラストは次の追加に備えた封印演出。 */
+.goddessUnlockSeal{
+  min-height:320px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.goddessUnlockSeal .sealFlame{
+  font-size:140px;
+  animation:goddessUnlockPop .7s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 18px #ffb228);
+}
+.goddessUnlockSeal .sealText{
+  margin-top:8px;
+  font-size:clamp(20px,5vw,30px);
+  font-weight:1000;
+}
+@keyframes goddessUnlockPop{to{transform:translateY(-10px) scale(1.08)}}
+
+/* ===== 女神登場イベント ===== */
+.goddessIntroOverlay{
+  position:fixed;
+  inset:0;
+  z-index:300000;
+  overflow:hidden;
+  background:rgba(2,4,16,.94);
+  color:#fff;
+  opacity:1;
+}
+.goddessIntroOverlay.hidden{display:none!important}
+.goddessIntroOverlay.closing{
+  animation:goddessOverlayClose .45s ease forwards;
+}
+@keyframes goddessOverlayClose{to{opacity:0}}
+
+.goddessParticles{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+}
+.goddessParticle{
+  position:absolute;
+  left:50%;
+  top:42%;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#fff9c8;
+  box-shadow:0 0 7px #fff,0 0 16px #d5b5ff,0 0 26px #ffd45a;
+  opacity:0;
+  transform:translate(var(--sx),var(--sy)) scale(.25);
+  animation:goddessParticleGather 2.25s var(--delay) cubic-bezier(.24,.8,.36,1) forwards;
+}
+@keyframes goddessParticleGather{
+  0%{opacity:0;transform:translate(var(--sx),var(--sy)) scale(.2)}
+  22%{opacity:1}
+  88%{opacity:1;transform:translate(0,0) scale(1.3)}
+  100%{opacity:0;transform:translate(0,0) scale(.2)}
+}
+.goddessLightCore{
+  position:absolute;
+  left:50%;
+  top:42%;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  z-index:3;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  box-shadow:0 0 20px #fff,0 0 65px #fff3a0,0 0 120px #d7c4ff;
+  animation:goddessCoreGrow 2.35s .55s ease-in forwards;
+}
+@keyframes goddessCoreGrow{
+  0%{transform:translate(-50%,-50%) scale(0);opacity:0}
+  55%{transform:translate(-50%,-50%) scale(2.5);opacity:1}
+  100%{transform:translate(-50%,-50%) scale(15);opacity:0}
+}
+.goddessFlash{
+  position:absolute;
+  left:50%;
+  top:42%;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  z-index:4;
+  transform:translate(-50%,-50%) scale(0);
+  background:#fff;
+  opacity:0;
+  pointer-events:none;
+}
+.goddessIntroOverlay.playing .goddessFlash{
+  animation:goddessFlashExpand 1.15s 2.15s ease-out forwards;
+}
+@keyframes goddessFlashExpand{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.1)}
+  35%{opacity:1}
+  100%{opacity:0;transform:translate(-50%,-50%) scale(22)}
+}
+
+.goddessIntroStage{
+  position:absolute;
+  inset:0;
+  z-index:5;
+  display:grid;
+  grid-template-rows:54dvh 1fr;
+  opacity:0;
+  transform:scale(.985);
+  transition:opacity .7s ease,transform .7s ease;
+  pointer-events:none;
+}
+.goddessIntroOverlay.revealed .goddessIntroStage{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+.goddessIntroVisual{
+  position:relative;
+  overflow:hidden;
+  background:#090b25;
+  border-bottom:2px solid rgba(255,255,255,.35);
+}
+.goddessIntroVisual::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0) 63%,rgba(5,5,18,.72) 100%);
+  pointer-events:none;
+}
+.goddessIntroVisual img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 34%;
+  filter:brightness(1.02) saturate(1.05);
+}
+.goddessDialogueBox{
+  position:relative;
+  padding:15px clamp(16px,5vw,38px) 18px;
+  box-sizing:border-box;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(151,112,255,.22),transparent 52%),
+    linear-gradient(180deg,#151126,#070914);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:0;
+}
+.goddessSpeaker{
+  color:#ffe99b;
+  font-size:clamp(18px,4.6vw,28px);
+  font-weight:1000;
+  text-align:center;
+  text-shadow:0 0 10px rgba(255,224,100,.55);
+}
+.goddessDialogueCount{
+  margin:4px auto 0;
+  color:#c8bff2;
+  font-size:13px;
+  font-weight:800;
+}
+.goddessDialogueBox p{
+  min-height:5.8em;
+  max-width:850px;
+  margin:9px auto 12px;
+  font-size:clamp(17px,4.3vw,25px);
+  line-height:1.65;
+  font-weight:800;
+  text-align:left;
+  color:#fff;
+  text-shadow:0 2px 3px #000;
+}
+#goddessDialogueNext{
+  width:min(78vw,360px);
+  margin:0 auto;
+  padding:10px 16px;
+  border:4px solid #fff;
+  border-radius:17px;
+  background:linear-gradient(180deg,#fff5a5,#ffd445);
+  color:#1d1724;
+  font-size:clamp(18px,4.6vw,26px);
+  font-weight:1000;
+  box-shadow:0 5px 0 rgba(255,255,255,.35);
+}
+@media(max-height:690px){
+  .goddessIntroStage{grid-template-rows:49dvh 1fr}
+  .goddessDialogueBox p{font-size:clamp(15px,3.8vw,20px);line-height:1.5;margin:6px auto}
+}
+@media(max-width:620px){
+  #questSetup .questSetupTopBtns{
+    align-items:center!important;
+  }
+  .questRealmSwitch{
+    width:100%;
+    justify-content:center;
+  }
+  .questRealmSwitch button{
+    flex:1;
+  }
+}
+</style>
+
+
+<style id="v1067-goddess-words-css">
+/* ===== 女神のことばボタン ===== */
+.goddessWordsBtn{
+  background:linear-gradient(180deg,#fff5c3,#eadcff) !important;
+  border-color:#3b2a50 !important;
+  color:#2a2038 !important;
+  white-space:nowrap;
+}
+.goddessWordsBtn.hidden{display:none!important}
+
+/* ===== 女神のことば専用オーバーレイ ===== */
+.goddessWordsOverlay{z-index:310000!important}
+.goddessWordsOverlay .goddessIntroStage{grid-template-rows:54dvh 1fr}
+.goddessWordsCategory{
+  width:max-content;
+  max-width:90%;
+  margin:5px auto 0;
+  padding:4px 12px;
+  border:1px solid rgba(255,255,255,.5);
+  border-radius:999px;
+  background:rgba(255,255,255,.1);
+  color:#d9d0ff;
+  font-size:13px;
+  font-weight:900;
+}
+.goddessWordsDialogueBox p{
+  min-height:6.7em;
+  white-space:pre-line;
+}
+.goddessWordsActions{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.goddessWordsActions button{
+  width:auto!important;
+  min-width:min(42vw,240px);
+  margin:0!important;
+  padding:9px 14px!important;
+  border:4px solid #fff!important;
+  border-radius:16px!important;
+  font-size:clamp(16px,4vw,22px)!important;
+  font-weight:1000!important;
+}
+#goddessWordsAnother{
+  background:linear-gradient(180deg,#fff5a5,#ffd445)!important;
+  color:#1d1724!important;
+}
+#goddessWordsClose{
+  background:linear-gradient(180deg,#f5efff,#d9c7ff)!important;
+  color:#241c33!important;
+}
+@media(max-width:620px){
+  #questSetup .questTopActions{
+    width:100%;
+    display:grid!important;
+    grid-template-columns:1fr 1fr;
+    gap:7px!important;
+  }
+  #questSetup .questTopActions #charResetBtn{
+    grid-column:1 / -1;
+    justify-self:center;
+  }
+  #questSetup .questTopActions button{
+    min-width:0!important;
+    width:100%!important;
+    padding-left:8px!important;
+    padding-right:8px!important;
+    font-size:clamp(13px,3.6vw,17px)!important;
+  }
+  .goddessWordsActions button{min-width:42vw!important}
+}
+@media(max-height:690px){
+  .goddessWordsOverlay .goddessIntroStage{grid-template-rows:48dvh 1fr}
+  .goddessWordsDialogueBox p{min-height:5.8em}
+}
+</style>
+
+
+<style id="v1068-goddess-words-fix">
+#goddessWordsImage{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center 34% !important;
+}
+
+.goddessWordsDialogueBox{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+#goddessWordsText{
+  min-height:0 !important;
+  max-height:28vh !important;
+  overflow-y:auto !important;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding-right:6px;
+  box-sizing:border-box;
+}
+
+#goddessWordsText::-webkit-scrollbar{
+  width:6px;
+}
+#goddessWordsText::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.35);
+  border-radius:999px;
+}
+
+@media(max-height:720px){
+  .goddessWordsOverlay .goddessIntroStage{
+    grid-template-rows:45dvh 1fr !important;
+  }
+  #goddessWordsText{
+    max-height:25vh !important;
+    font-size:clamp(15px,3.8vw,20px) !important;
+    line-height:1.5 !important;
+  }
+}
+</style>
 
 </head>
 <body><div id="appShell">
-<header><h1>✏️ 漢字バトル Ver.10.44 ⚔️</h1></header>
+<header><h1>✏️ 漢字バトル Ver.10.68 ⚔️</h1></header>
 <main>
 <section id="modeSelect" class="card">
 <h2>🎮 モードを選ぼう！</h2>
@@ -1266,23 +2993,67 @@ body.waterQuest #finalCharacter img {
 <option value="4">小学4年生まで</option><option value="5">小学5年生まで</option><option value="6">小学6年生まで</option>
 </select></label>
 <div id="nameFields"></div>
-<button id="startBtn" class="primary">書き始める！</button>
+<button id="startBtn" class="primary">キャラ選択へ ▶</button>
 <p class="small">書き順はKanjiVGの一画ごとの標準ストローク形状と照合します。初回はお手本データの読み込みに通信が必要です。</p><div id="loadStatus" class="small"></div>
 <p class="small">SE: Kenney UI Audio（CC0）。BGMはブラウザ内で生成するオリジナル簡易BGMです。</p>
 </section>
 
+<section id="battleCharSelect" class="card hidden">
+  <button id="battleCharBackBtn">← バトル設定へ</button>
+  <h2>⚔️ バトルキャラ選択</h2>
+  <p class="battleCharGuide">開放済みのキャラから、各プレイヤーの相棒を選ぼう！</p>
+  <div id="battleCharProgress" class="battleCharProgress"></div>
+  <h3 id="battleCharWho"></h3>
+  <div id="battleUnlockedGrid" class="battleUnlockedGrid"></div>
+
+  <div id="battleStageOverlay" class="battleStageOverlay hidden" aria-hidden="true">
+    <div class="battleStageOverlayInner" role="dialog" aria-modal="true" aria-labelledby="battleStageQuestion">
+      <div id="battleStageQuestion" class="battleStageQuestion">✨ どれにする？ ✨</div>
+      <div id="battleStageCharacterName" class="battleStageCharacterName"></div>
+      <div id="battleStageChoices" class="battleStageChoices"></div>
+      <button id="battleStageCancelBtn" type="button" class="battleStageCancelBtn">← キャラ一覧に戻る</button>
+    </div>
+  </div>
+
+  <div id="battleNoChars" class="battleNoChars hidden">
+    開放済みのキャラがありません。<br>
+    先に「ひとりで成長クエスト」でキャラを完全体まで育てて開放してください。
+  </div>
+  <div id="battleCharSummary" class="battleCharSummary"></div>
+  <button id="battleCharConfirmBtn" class="primary" disabled>このキャラに決定 ▶</button>
+</section>
+
 
 <section id="questSetup" class="card hidden">
-<div class="questSetupTopBtns"><div class="questTopActions"><button id="questBackBtn">← モード選択へ</button><button id="charResetBtn" class="charResetBtn">🔄 キャラリセット</button></div></div>
-<h2>🌱 成長クエスト</h2>
-<label>学年 <select id="questGrade"><option value="1">小学1年生</option><option value="2">小学2年生</option><option value="3" selected>小学3年生</option><option value="4">小学4年生</option><option value="5">小学5年生</option><option value="6">小学6年生</option></select></label>
-<h3>相棒を選ぼう！<div class="goRules"><b>⚠️ ゲームオーバーに注意！</b>
+<div class="questSetupTopBtns">
+  <div class="questTopActions">
+    <button id="questBackBtn">← モード選択へ</button>
+    <button id="goddessWordsBtn" class="goddessWordsBtn hidden" type="button">✨ 女神のことば</button>
+    <button id="charResetBtn" class="charResetBtn">🔄 キャラリセット</button>
+  </div>
+  <div id="questRealmSwitch" class="questRealmSwitch hidden" aria-label="成長クエストのモード切り替え">
+    <button id="apostleModeBtn" type="button">🪽 神の使いモード</button>
+    <button id="goddessModeBtn" type="button">👑 女神モード</button>
+  </div>
+</div>
+
+<h2 id="questSetupTitle">🌱 成長クエスト</h2>
+<label id="questGradeLabel">学年
+  <select id="questGrade"><option value="1">小学1年生</option><option value="2">小学2年生</option><option value="3" selected>小学3年生</option><option value="4">小学4年生</option><option value="5">小学5年生</option><option value="6">小学6年生</option></select>
+</label>
+
+<h3 id="questPartnerHeading">
+  <span id="questPartnerTitle">相棒を選ぼう！</span>
+  <div id="questRules" class="goRules"><b>⚠️ ゲームオーバーに注意！</b>
 ❌ 3回まちがえる<br>⏱️ 時間切れになる<br>⭐ 進化に必要なEXPが足りない<br>
-このどれかでゲームオーバー！ 育成は最初からになるよ。正確に答えて最終進化をめざそう！<br>全キャラ開放で、、、！？</div></h3>
+このどれかでゲームオーバー！ 育成は最初からになるよ。正確に答えて最終進化をめざそう！<br>全キャラ開放で、、、！？</div>
+</h3>
 
 <div id="bonusUnlockNotice" class="hidden">
   ✨ 新たなキャラが開放されました ✨
 </div>
+
+<div id="goddessChallengeNotice" class="goddessChallengeNotice hidden"></div>
 
 <div id="characterChoices" class="charGrid"></div>
 <button id="questStartBtn" class="primary">冒険スタート！</button>
@@ -1305,11 +3076,38 @@ body.waterQuest #finalCharacter img {
 <button id="questAgain" class="primary">別のキャラを育てる</button><button id="questHome">タイトルへ</button>
 </section>
 <section id="collectionScreen" class="card hidden">
-<button id="collectionBack">← 戻る</button><h2>📖 キャラ図鑑</h2><p>最終進化まで育てたキャラが登録されます。</p><div id="collectionGrid" class="charGrid"></div>
+<button id="collectionBack">← 戻る</button>
+<h2>📖 キャラ図鑑</h2>
+<p class="collectionGuide">最終進化まで育てたキャラが登録されます。<br><b>解放済みのキャラをタップすると、進化図鑑を見られます。</b></p>
+<div id="collectionGrid" class="charGrid"></div>
+</section>
+
+<section id="collectionDetailScreen" class="card hidden">
+<div class="collectionDetailTop">
+  <button id="collectionDetailBack">← キャラ図鑑へ</button>
+  <div>
+    <h2 id="collectionDetailTitle">進化図鑑</h2>
+    <div id="collectionDetailAttribute" class="collectionAttributeChip"></div>
+  </div>
+</div>
+
+<p class="collectionDetailHint">カードをタップすると、キャラの上に説明が表示されます。説明をタップすると閉じます。</p>
+
+<div id="collectionEvolutionCards" class="collectionEvolutionCards"></div>
+
+<div id="collectionLorePanel" class="collectionLorePanel hidden">
+  <div id="collectionLoreStage" class="collectionLoreStage"></div>
+  <h2 id="collectionLoreName"></h2>
+  <p id="collectionLoreText"></p>
+</div>
 </section>
 <section id="play" class="card hidden">
-<h2 id="who"></h2><div id="timer" class="timer"></div>
-<span id="gradeLabel" class="gradeTag"></span><div id="battleProgress"><b>第1問 / 全10問</b></div>
+<div class="battleWhoRow">
+  <img id="battleMiniChar" class="battleMiniChar" alt="">
+  <div><h2 id="who"></h2><div id="battleMiniName" class="battleMiniName"></div></div>
+</div>
+<div id="timer" class="timer"></div>
+<span id="gradeLabel" class="gradeTag"></span><div id="battleProgress"><b>1戦勝負</b></div>
 <h2 id="battlePrompt">ひらがなを漢字に直そう！</h2><div id="battleAssist" class="assistHint hidden"></div><div id="topic" class="kanji"></div>
 <div id="battleReadingArea" class="hidden"><div id="battleReadingChoices" class="battleReadingChoices"></div></div>
 <div id="battleWritingArea"><canvas id="pad" width="430" height="430"></canvas><br>
@@ -1321,16 +3119,72 @@ body.waterQuest #finalCharacter img {
 <section id="handoff" class="card hidden"><h2>🙈 交代タイム</h2><p id="handoffText"></p><button id="nextBtn" class="primary">次の人、準備OK！</button></section>
 
 <section id="battleReady" class="card hidden">
-<div class="readyScreen"><div>全員の漢字がそろった！</div><div class="readyTitle">⚔️ 対戦準備完了 ⚔️</div>
-<p>ボタンを押すまで採点結果は秘密です。</p><button id="battleBtn" class="bigBattle">🔥 バトルスタート！ 🔥</button></div>
+<div class="readyScreen">
+  <div>全員の漢字がそろった！</div>
+  <div class="readyTitle">⚔️ 対戦準備完了 ⚔️</div>
+  <p>選んだキャラ同士が、いよいよ激突！<br>ボタンを押すまで採点結果は秘密です。</p>
+  <div id="battleReadyRoster" class="battleReadyRoster"></div>
+  <button id="battleBtn" class="bigBattle">🔥 バトルスタート！ 🔥</button>
+</div>
 </section>
 
 <section id="result" class="card hidden">
-<h2 id="special"></h2><div class="arena"><div class="fighters" id="fighters"></div><div id="effect" class="effect"></div></div>
-<h2 id="winner"></h2><div id="scoregrid" class="scoregrid"></div>
-<button id="againBtn" class="primary">次の漢字で勝負！</button><button id="homeBtn">設定へ戻る</button>
+<div class="arena">
+  <div class="battleArenaAnnouncements">
+    <h2 id="special"></h2>
+    <div id="battlePhaseText" class="battlePhaseText"></div>
+    <h2 id="winner"></h2>
+  </div>
+  <div class="fighters" id="fighters"></div>
+  <div id="effect" class="effect"></div>
+</div>
+<div id="battleResultActions" class="battleResultActions hidden">
+  <button id="againBtn" class="primary">🔁 もう1回</button>
+  <button id="charSelectAgainBtn">🧩 キャラ選択へ</button>
+  <button id="homeBtn">🏠 最初に戻る</button>
+</div>
 </section>
-<footer class="small" style="padding:12px">書き順データ: KanjiVG © Ulrich Apel / CC BY-SA 3.0<br>SE: Kenney UI Audio / CC0</footer></main></div>
+<footer class="small" style="padding:12px">書き順データ: KanjiVG © Ulrich Apel / CC BY-SA 3.0<br>SE: Kenney UI Audio / CC0</footer>
+<div id="goddessWordsOverlay" class="goddessIntroOverlay goddessWordsOverlay hidden" aria-hidden="true">
+  <div id="goddessWordsParticles" class="goddessParticles"></div>
+  <div class="goddessLightCore"></div>
+  <div class="goddessFlash"></div>
+
+  <div class="goddessIntroStage">
+    <div class="goddessIntroVisual">
+      <img id="goddessWordsImage" src="assets/embedded_01_baf7420b.png" alt="女神セレナ">
+    </div>
+    <div class="goddessDialogueBox goddessWordsDialogueBox">
+      <div class="goddessSpeaker">✨ 女神セレナ ✨</div>
+      <div id="goddessWordsCategory" class="goddessWordsCategory">女神のことば</div>
+      <p id="goddessWordsText"></p>
+      <div class="goddessWordsActions">
+        <button id="goddessWordsAnother" type="button">もう一言 ✨</button>
+        <button id="goddessWordsClose" type="button">閉じる</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="goddessIntroOverlay" class="goddessIntroOverlay hidden" aria-hidden="true">
+  <div id="goddessParticles" class="goddessParticles"></div>
+  <div class="goddessLightCore"></div>
+  <div class="goddessFlash"></div>
+
+  <div id="goddessIntroStage" class="goddessIntroStage">
+    <div class="goddessIntroVisual">
+      <img src="assets/embedded_01_baf7420b.png" alt="漢字ゲームの女神">
+    </div>
+    <div id="goddessDialogueBox" class="goddessDialogueBox">
+      <div class="goddessSpeaker">✨ 女神モード・開放 ✨</div>
+      <div id="goddessDialogueCount" class="goddessDialogueCount">1 / 3</div>
+      <p id="goddessDialogueText"></p>
+      <button id="goddessDialogueNext" type="button">次へ ▶</button>
+    </div>
+  </div>
+</div>
+
+</main></div>
 
 <script>
 function requiredExpForStage(stage){
@@ -1355,37 +3209,93 @@ const gradeKanji={
 };
 
 let referenceStrokes=null;
+let referenceKanji="";
+let referenceLoadState="idle";
+let referenceLoadPromise=Promise.resolve(false);
+let referenceLoadToken=0;
+let questJudgeBusy=false;
+
+/* 外部書き順データが取得できない場合の安全弁。
+   現在問題になっている「糸」は6画なので、ここだけ画数判定へ退避できる。 */
+const QUEST_STROKE_FALLBACK={"糸":6};
 
 /* KanjiVG: each SVG path is one stroke, already ordered.
    We sample every path into points and compare the player's Nth stroke
    only against the Nth reference stroke. */
 async function loadStrictReference(ch){
-  $("loadStatus").textContent="書き順データを読み込み中…";
+  const token=++referenceLoadToken;
+  referenceKanji=ch;
+  referenceStrokes=null;
+  referenceLoadState="loading";
+
+  const status=$("loadStatus");
+  if(status)status.textContent="書き順データを読み込み中…";
+
   const hex=ch.codePointAt(0).toString(16).padStart(5,"0");
   const url=`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${hex}.svg`;
+  const controller=new AbortController();
+  const timeoutId=setTimeout(()=>controller.abort(),7000);
+
   try{
-    const text=await fetch(url,{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.text()});
+    const text=await fetch(url,{
+      cache:"force-cache",
+      signal:controller.signal
+    }).then(r=>{
+      if(!r.ok)throw new Error("HTTP "+r.status);
+      return r.text();
+    });
+
+    /* すでに次の問題へ進んでいたら、古い通信結果は捨てる */
+    if(token!==referenceLoadToken || referenceKanji!==ch)return false;
+
     const doc=new DOMParser().parseFromString(text,"image/svg+xml");
     let paths=[...doc.querySelectorAll('path[id*="-s"]')];
-    // Keep only actual stroke paths and sort by -s1, -s2...
-    paths=paths.filter(p=>/-s\d+$/.test(p.id)).sort((a,b)=>(+a.id.match(/-s(\d+)$/)[1])-(+b.id.match(/-s(\d+)$/)[1]));
+    paths=paths
+      .filter(p=>/-s\d+$/.test(p.id))
+      .sort((a,b)=>(+a.id.match(/-s(\d+)$/)[1])-(+b.id.match(/-s(\d+)$/)[1]));
+
     const holder=document.createElementNS("http://www.w3.org/2000/svg","svg");
-    holder.setAttribute("viewBox","0 0 109 109");holder.style.cssText="position:absolute;width:109px;height:109px;left:-9999px;top:-9999px";
+    holder.setAttribute("viewBox","0 0 109 109");
+    holder.style.cssText="position:absolute;width:109px;height:109px;left:-9999px;top:-9999px";
     document.body.appendChild(holder);
-    referenceStrokes=paths.map(p=>{
-      const cp=document.createElementNS("http://www.w3.org/2000/svg","path");cp.setAttribute("d",p.getAttribute("d"));holder.appendChild(cp);
-      const L=cp.getTotalLength(), arr=[];
-      for(let i=0;i<=24;i++){let q=cp.getPointAtLength(L*i/24);arr.push({x:q.x/109,y:q.y/109})}
-      cp.remove();return arr
-    });
+
+    const loaded=paths.map(p=>{
+      const cp=document.createElementNS("http://www.w3.org/2000/svg","path");
+      cp.setAttribute("d",p.getAttribute("d"));
+      holder.appendChild(cp);
+
+      const L=cp.getTotalLength(),arr=[];
+      if(!Number.isFinite(L) || L<=0){
+        cp.remove();
+        return null;
+      }
+
+      for(let i=0;i<=24;i++){
+        const q=cp.getPointAtLength(L*i/24);
+        arr.push({x:q.x/109,y:q.y/109});
+      }
+      cp.remove();
+      return arr;
+    }).filter(Boolean);
+
     holder.remove();
-    if(!referenceStrokes.length)throw new Error("no strokes");
-    $("loadStatus").textContent=`書き順データOK：${referenceStrokes.length}画`;
+
+    if(!loaded.length)throw new Error("no strokes");
+    if(token!==referenceLoadToken || referenceKanji!==ch)return false;
+
+    referenceStrokes=loaded;
+    referenceLoadState="ready";
+    if(status)status.textContent=`書き順データOK：${referenceStrokes.length}画`;
     return true;
   }catch(e){
+    if(token!==referenceLoadToken || referenceKanji!==ch)return false;
     referenceStrokes=null;
-    $("loadStatus").textContent="書き順データを取得できません。通信を確認して、もう一度スタートしてください。";
+    referenceLoadState="failed";
+    if(status)status.textContent="書き順データを取得できませんでした。";
+    console.warn("KanjiVG load failed:",ch,e);
     return false;
+  }finally{
+    clearTimeout(timeoutId);
   }
 }
 function resample(points,n=25){
@@ -1450,14 +3360,207 @@ function startBGM(){
 function stopBGM(){if(bgmTimer){clearInterval(bgmTimer);bgmTimer=null}}
 let playerNames=[],turn=0,currentKanji="",results=[],seconds=30,timerId=null,drawing=false,currentStroke=[],strokes=[];
 let battleQuestions=[],battleQ=0,battleAnswers=[];
+let battleCharacterIds=[],battleCharacterStages=[],battleCharPickIndex=0,battlePendingCharId=null,battlePendingStage=3;
 const canvas=$("pad"),ctx=canvas.getContext("2d");ctx.lineWidth=12;ctx.lineCap="round";ctx.lineJoin="round";ctx.strokeStyle="#111";
-function show(id){["modeSelect","setup","questSetup","questPlay","questClearScreen","collectionScreen","play","handoff","battleReady","result"].forEach(v=>$(v).classList.toggle("hidden",v!==id))}
+function show(id){["modeSelect","setup","battleCharSelect","questSetup","questPlay","questClearScreen","collectionScreen","collectionDetailScreen","play","handoff","battleReady","result"].forEach(v=>$(v).classList.toggle("hidden",v!==id))}
 function buildNames(){const box=$("nameFields");box.innerHTML="";for(let i=0;i<+$("playerCount").value;i++){let inp=document.createElement("input");inp.id="playerName"+i;inp.placeholder="プレイヤー"+(i+1)+"の名前";inp.value="プレイヤー"+(i+1);box.append(inp,document.createElement("br"))}}
+
 $("playerCount").addEventListener("change",buildNames);buildNames();
-function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+$("battleStageCancelBtn").addEventListener("click",()=>{playSE(seClick);closeBattleStagePicker()});
+$("battleStageOverlay").addEventListener("click",e=>{if(e.target===$("battleStageOverlay")){playSE(seClick);closeBattleStagePicker()}});
+
+function getBattleUnlockedCharacters(){
+ let unlocked=[];
+ try{unlocked=JSON.parse(localStorage.getItem("kanjiQuestCollection")||"[]")||[]}catch(e){unlocked=[]}
+ return CHARACTERS.filter(c=>{
+   if(c.id==="sky"||c.id==="ice")return false;
+   const arts=STAGE_ART[c.id]||[];
+   return unlocked.includes(c.id)&&!!arts[3];
+ });
+}
+
+function battleCharById(id){
+ return CHARACTERS.find(c=>c.id===id)||null;
+}
+
+function battleStageLabel(stage){
+ return stage===1?"幼体":stage===2?"成体":"完全体";
+}
+
+function openBattleStagePicker(charId){
+ const c=battleCharById(charId);
+ if(!c)return;
+ const arts=STAGE_ART[c.id]||[];
+ const available=[1,2,3].filter(stage=>!!arts[stage]);
+
+ $("battleStageCharacterName").textContent=(c.names&&c.names[3]?c.names[3]:c.name)+" の進化形";
+ $("battleStageChoices").innerHTML=available.map(stage=>{
+   const name=(c.names&&c.names[stage])||c.name;
+   return `<button type="button" class="battleStageChoice ${battlePendingCharId===c.id&&battlePendingStage===stage?"selected":""}" data-stage="${stage}">
+     <div class="battleStageTag">${battleStageLabel(stage)}</div>
+     <img src="${arts[stage]}" alt="${name}">
+     <b>${name}</b>
+   </button>`;
+ }).join("");
+
+ $("battleStageOverlay").classList.remove("hidden");
+ $("battleStageOverlay").setAttribute("aria-hidden","false");
+
+ document.querySelectorAll("#battleStageChoices [data-stage]").forEach(btn=>{
+   btn.addEventListener("click",()=>{
+     battlePendingCharId=c.id;
+     battlePendingStage=+btn.dataset.stage;
+     playSE(seConfirm);
+     closeBattleStagePicker();
+     renderBattleCharSelect();
+   });
+ });
+}
+
+function closeBattleStagePicker(){
+ $("battleStageOverlay").classList.add("hidden");
+ $("battleStageOverlay").setAttribute("aria-hidden","true");
+}
+
+function renderBattleCharSelect(){
+ const chars=getBattleUnlockedCharacters();
+ const currentPlayer=playerNames[battleCharPickIndex]||`プレイヤー${battleCharPickIndex+1}`;
+ $("battleCharProgress").textContent=`キャラ選択 ${battleCharPickIndex+1} / ${playerNames.length}`;
+ $("battleCharWho").textContent=`${currentPlayer} の相棒を選ぼう！`;
+
+ if(!chars.length){
+   $("battleUnlockedGrid").innerHTML="";
+   $("battleNoChars").classList.remove("hidden");
+   $("battleCharConfirmBtn").disabled=true;
+ }else{
+   $("battleNoChars").classList.add("hidden");
+   $("battleUnlockedGrid").innerHTML=chars.map(c=>{
+     const arts=STAGE_ART[c.id]||[];
+     const selected=battlePendingCharId===c.id;
+     const previewStage=selected?battlePendingStage:3;
+     const art=arts[previewStage]||arts[3]||"";
+     const shownName=(c.names&&c.names[previewStage])||c.name;
+     const finalName=(c.names&&c.names[3])||c.name;
+     return `<button type="button" class="battlePickCard ${selected?"selected":""}" data-battle-char="${c.id}">
+       <img src="${art}" alt="${shownName}">
+       <b>${selected?shownName:finalName}</b>
+       <span>${selected?`✨ ${battleStageLabel(previewStage)}を選択中`:`タップして3段階から選ぶ`}</span>
+     </button>`;
+   }).join("");
+
+   document.querySelectorAll("[data-battle-char]").forEach(card=>{
+     card.addEventListener("click",()=>{
+       playSE(seClick);
+       openBattleStagePicker(card.dataset.battleChar);
+     });
+   });
+   $("battleCharConfirmBtn").disabled=!battlePendingCharId;
+ }
+
+ $("battleCharSummary").innerHTML=battleCharacterIds.map((id,i)=>{
+   const c=battleCharById(id);
+   if(!c)return "";
+   const stage=battleCharacterStages[i]||3;
+   const name=(c.names&&c.names[stage])||c.name;
+   return `<span class="battleChosenChip">${playerNames[i]}：${name}</span>`;
+ }).join("");
+}
+
+function openBattleCharacterSelect(keepChoices=false){
+ battleCharPickIndex=0;
+ if(!keepChoices||battleCharacterIds.length!==playerNames.length){
+   battleCharacterIds=Array(playerNames.length).fill(null);
+   battleCharacterStages=Array(playerNames.length).fill(3);
+ }
+ battlePendingCharId=battleCharacterIds[0]||null;
+ battlePendingStage=battleCharacterStages[0]||3;
+ closeBattleStagePicker();
+ renderBattleCharSelect();
+ show("battleCharSelect");
+}
+
+function confirmBattleCharacter(){
+ if(!battlePendingCharId)return;
+ battleCharacterIds[battleCharPickIndex]=battlePendingCharId;
+ battleCharacterStages[battleCharPickIndex]=battlePendingStage||3;
+ playSE(seConfirm);
+
+ if(battleCharPickIndex<playerNames.length-1){
+   battleCharPickIndex++;
+   battlePendingCharId=battleCharacterIds[battleCharPickIndex]||null;
+   battlePendingStage=battleCharacterStages[battleCharPickIndex]||3;
+   renderBattleCharSelect();
+   window.scrollTo({top:0,behavior:"smooth"});
+   return;
+ }
+ startSingleBattleRound();
+}
+
+function getBattleCharacterArt(playerIndex){
+ const c=battleCharById(battleCharacterIds[playerIndex]);
+ if(!c)return "";
+ const stage=battleCharacterStages[playerIndex]||3;
+ const arts=STAGE_ART[c.id]||[];
+ return arts[stage]||arts[3]||"";
+}
+
+function getBattleCharacterName(playerIndex){
+ const c=battleCharById(battleCharacterIds[playerIndex]);
+ if(!c)return "";
+ const stage=battleCharacterStages[playerIndex]||3;
+ return (c.names&&c.names[stage])||c.name;
+}
+
+function startSingleBattleRound(){
+ turn=0;
+ battleQ=0;
+ battleAnswers=playerNames.map(()=>[]);
+ results=[];
+ makeBattleQuestions();
+ startBGM();
+ playSE(seConfirm);
+ beginTurn();
+}
+
+function secureRandomIndex(max){
+ if(max<=1)return 0;
+ try{
+   if(window.crypto&&crypto.getRandomValues){
+     const buf=new Uint32Array(1);
+     crypto.getRandomValues(buf);
+     return buf[0]%max;
+   }
+ }catch(e){}
+ return Math.floor(Math.random()*max);
+}
+function shuffle(a){
+ const out=[...a];
+ for(let i=out.length-1;i>0;i--){
+   const j=secureRandomIndex(i+1);
+   [out[i],out[j]]=[out[j],out[i]];
+ }
+ return out;
+}
 function makeBattleQuestions(){
  const grade=+$("grade").value;
- battleQuestions=shuffle(QUEST_READING_BANK[grade]).slice(0,10).map(x=>({word:x[0],reading:x[1],assist:assistFor(x[0]),type:"write"}));
+ const bank=[...(QUEST_READING_BANK[grade]||[])];
+ if(!bank.length){battleQuestions=[];return}
+
+ // 直近に出た問題を避けることで、毎回同じ問題から始まる偏りを防ぐ。
+ const historyKey=`kanjiBattleRecentQuestions_${grade}`;
+ let recent=[];
+ try{recent=JSON.parse(localStorage.getItem(historyKey)||"[]")||[]}catch(e){recent=[]}
+ const keyOf=x=>`${x[0]}|${x[1]}`;
+ let candidates=bank.filter(x=>!recent.includes(keyOf(x)));
+ if(!candidates.length)candidates=bank;
+
+ const picked=candidates[secureRandomIndex(candidates.length)];
+ const pickedKey=keyOf(picked);
+ const keepCount=Math.max(1,Math.min(7,bank.length-1));
+ recent=[pickedKey,...recent.filter(k=>k!==pickedKey)].slice(0,keepCount);
+ try{localStorage.setItem(historyKey,JSON.stringify(recent))}catch(e){}
+
+ battleQuestions=[{word:picked[0],reading:picked[1],assist:assistFor(picked[0]),type:"write"}];
 }
 function wipe(){ctx.clearRect(0,0,430,430);strokes=[]}
 function redraw(){ctx.clearRect(0,0,430,430);for(const st of strokes){if(!st.length)continue;ctx.beginPath();ctx.moveTo(st[0].x,st[0].y);for(const p of st.slice(1))ctx.lineTo(p.x,p.y);ctx.stroke()}}
@@ -1481,7 +3584,14 @@ function writeGrade(){
 }
 async function beginTurn(){
  applyRotation();wipe();show("play");let q=battleQuestions[battleQ];currentKanji=q.word;
- $("who").textContent=playerNames[turn]+" の番！";$("gradeLabel").textContent="小学"+$("grade").value+"年生";$("battleProgress").innerHTML=`<b>第${battleQ+1}問 / 全10問</b>`;
+ $("who").textContent=playerNames[turn]+" の番！";
+ $("gradeLabel").textContent="小学"+$("grade").value+"年生";
+ $("battleProgress").innerHTML="<b>⚔️ 1戦勝負</b>";
+ const miniArt=getBattleCharacterArt(turn),miniName=getBattleCharacterName(turn);
+ $("battleMiniChar").src=miniArt;
+ $("battleMiniChar").alt=miniName;
+ $("battleMiniChar").style.visibility=miniArt?"visible":"hidden";
+ $("battleMiniName").textContent=miniName;
  $("battleReadingArea").classList.toggle("hidden",q.type!=="read");$("battleWritingArea").classList.toggle("hidden",q.type!=="write");
  if(q.type==="read"){
    $("battleAssist").classList.add("hidden");$("battleAssist").textContent="";
@@ -1497,10 +3607,21 @@ async function beginTurn(){
  seconds=+$("timeLimit").value;$("timer").textContent=seconds+"秒";$("timer").classList.remove("red");clearInterval(timerId);timerId=setInterval(()=>{seconds--;$("timer").textContent=seconds+"秒";$("timer").classList.toggle("red",seconds<=5);if(seconds<=0){clearInterval(timerId);finishBattleAnswer({correct:false,beauty:0,order:0,attack:0,gauge:0,total:0,specialBonus:0,strokeScores:[],reason:"時間切れ",img:q.type==="write"?snapshot():null})}},1000);
 }
 function finishBattleAnswer(score){
- clearInterval(timerId);let q=battleQuestions[battleQ];score.img=score.img||(q.type==="write"?snapshot():null);
- if(!battleAnswers[turn])battleAnswers[turn]=[];battleAnswers[turn][battleQ]={...score,type:q.type,word:q.word,reading:q.reading};
- if(turn<playerNames.length-1){$("handoffText").textContent=playerNames[turn]+"の答えを隠しました。"+playerNames[turn+1]+"に画面を渡してください。";show("handoff")}
- else{showOneQuestionResult()}
+ clearInterval(timerId);
+ let q=battleQuestions[battleQ];
+ score.img=score.img||(q.type==="write"?snapshot():null);
+ if(!battleAnswers[turn])battleAnswers[turn]=[];
+ battleAnswers[turn][battleQ]={...score,type:q.type,word:q.word,reading:q.reading};
+
+ if(turn<playerNames.length-1){
+   $("handoffText").textContent=playerNames[turn]+"の答えを隠しました。"+playerNames[turn+1]+"に画面を渡してください。";
+   show("handoff");
+ }else{
+   document.body.classList.remove("flip");
+   aggregateBattle();
+   renderBattleReadyRoster();
+   show("battleReady");
+ }
 }
 
 function showOneQuestionResult(){
@@ -1532,45 +3653,146 @@ function advanceRoundResult(){
 function aggregateBattle(){
  results=playerNames.map((_,i)=>{let a=battleAnswers[i]||[],correct=a.filter(x=>x&&x.correct).length,writes=a.filter(x=>x&&x.type==="write"&&x.correct),beauty=writes.length?Math.round(writes.reduce((z,x)=>z+x.beauty,0)/writes.length):0,order=writes.length?Math.round(writes.reduce((z,x)=>z+x.order,0)/writes.length):0,total=a.reduce((z,x)=>z+(x?x.total:0),0);return{score:{correct,beauty,order,attack:total,gauge:order,total,specialBonus:0,strokeScores:[]},img:(writes.at(-1)||{}).img}})
 }
-$("startBtn").addEventListener("click",()=>{playerNames=[];for(let i=0;i<+$("playerCount").value;i++)playerNames.push($("playerName"+i).value.trim()||"プレイヤー"+(i+1));turn=0;battleQ=0;battleAnswers=playerNames.map(()=>[]);makeBattleQuestions();startBGM();playSE(seConfirm);beginTurn()});
-$("nextBtn").addEventListener("click",()=>{playSE(seClick);if(turn<playerNames.length-1)turn++;else{turn=0;battleQ++;$("nextBtn").textContent="次の人、準備OK！"}beginTurn()});
+
+function renderBattleReadyRoster(){
+ $("battleReadyRoster").innerHTML=playerNames.map((name,i)=>{
+   const art=getBattleCharacterArt(i);
+   const charName=getBattleCharacterName(i);
+   return `<div class="battleReadyFighter">
+     <img src="${art}" alt="${charName}">
+     <b>${name}</b>
+     <span>${charName}</span>
+   </div>`;
+ }).join("");
+}
+$("startBtn").addEventListener("click",()=>{playerNames=[];for(let i=0;i<+$("playerCount").value;i++)playerNames.push($("playerName"+i).value.trim()||"プレイヤー"+(i+1));playSE(seConfirm);openBattleCharacterSelect(false)});
+$("nextBtn").addEventListener("click",()=>{playSE(seClick);if(turn<playerNames.length-1)turn++;beginTurn()});
 $("doneBtn").addEventListener("click",()=>{let g=writeGrade();finishBattleAnswer(g)});
 $("clearBtn").addEventListener("click",()=>{playSE(seClick);wipe()});$("undoBtn").addEventListener("click",()=>{playSE(seClick);strokes.pop();redraw()});
 function battle(){
- document.body.classList.remove("flip");show("result");let max=Math.max(...results.map(r=>r.score.total)),winners=results.map((r,i)=>r.score.total===max?i:-1).filter(i=>i>=0),win=winners[0];
- $("special").textContent="⚔️ 10問終了！ 最終総合結果";$("winner").textContent="";$("fighters").innerHTML="";$("scoregrid").innerHTML="";$("effect").className="effect";$("effect").textContent="💥";
- results.forEach((r,i)=>{$("fighters").insertAdjacentHTML("beforeend",`<div class="fighter" id="fighter${i}"><div class="fname">${playerNames[i]}</div>${r.img?`<img src="${r.img}">`:""}<div class="power">${r.score.total} POWER</div></div>`);$("scoregrid").insertAdjacentHTML("beforeend",`<div class="score"><b>${playerNames[i]}</b><br>⭕ 書き正解 ${r.score.correct}/10<br>✨ 平均きれいさ ${r.score.beauty}/100<br>📖 書き順 ${r.score.order}/100<br><b>総合POWER ${r.score.total}</b></div>`)});
- setTimeout(()=>{playSE(seHit);winners.forEach(i=>$("fighter"+i).classList.add("champion","attack"));$("effect").classList.add("effectGo")},500);setTimeout(()=>{$("winner").textContent=winners.length>1?"🤝 引き分け！":"🏆 "+playerNames[win]+" の勝利！"},1500)
+ document.body.classList.remove("flip");
+ show("result");
+ window.scrollTo({top:0,behavior:"smooth"});
+
+ const max=Math.max(...results.map(r=>r.score.total));
+ const winners=max>0?results.map((r,i)=>r.score.total===max?i:-1).filter(i=>i>=0):[];
+
+ $("special").textContent=`⚔️ 1戦勝負！ 正解「${(battleQuestions[0]||{}).word||"?"}」`;
+ $("winner").textContent="";
+ $("battlePhaseText").textContent="🔥 キャラ同士がにらみ合っている…";
+ $("fighters").innerHTML=""; $("fighters").style.setProperty("--fighterCount",playerNames.length);
+ $("effect").className="effect";
+ $("effect").textContent="💥";
+ $("battleResultActions").classList.add("hidden");
+
+ const center=(playerNames.length-1)/2;
+
+ results.forEach((r,i)=>{
+   const art=getBattleCharacterArt(i);
+   const charName=getBattleCharacterName(i);
+   const dir=i<center?1:(i>center?-1:(i%2===0?1:-1));
+   const distance=Math.max(45,Math.min(125,Math.abs(i-center)*42+58));
+   const chargeX=dir*distance;
+
+   $("fighters").insertAdjacentHTML("beforeend",
+     `<div class="fighter battleCharacterFighter" id="fighter${i}" style="--chargeX:${chargeX}px;--delay:${i*0.07}s">
+       <div class="fname">${playerNames[i]}</div>
+       <div class="fighterCharacterFrame"><img src="${art}" alt="${charName}"></div>
+       <div class="fighterCharName">${charName}</div>
+     </div>`);
+
+ });
+
+ const arena=document.querySelector("#result .arena");
+ arena.classList.remove("arenaBrawl","arenaImpact");
+ void arena.offsetWidth;
+
+ // まず全員がドタバタと中央へ突進
+ setTimeout(()=>{
+   playSE(seBattle);
+   $("battlePhaseText").textContent="💨 いっせいに突撃！";
+   arena.classList.add("arenaBrawl");
+   document.querySelectorAll(".battleCharacterFighter").forEach(f=>f.classList.add("brawl"));
+ },250);
+
+ // 衝突の瞬間
+ setTimeout(()=>{
+   playSE(seHit);
+   $("battlePhaseText").textContent="💥 ドタバタ激突！";
+   arena.classList.add("arenaImpact");
+   $("effect").classList.add("effectGo","battleCrashEffect");
+ },1050);
+
+ // 衝突後、すぐに勝敗を出さず少しタメを作る
+ setTimeout(()=>{
+   document.querySelectorAll(".battleCharacterFighter").forEach(f=>f.classList.remove("brawl"));
+   $("battlePhaseText").textContent="😳 どっちが勝つ…！？";
+   $("winner").textContent="";
+ },1750);
+
+ // 勝敗発表。ここで初めて勝者が分かる
+ setTimeout(()=>{
+   $("battlePhaseText").textContent="✨ 勝敗決定！";
+   if(winners.length){
+     winners.forEach(i=>$("fighter"+i)?.classList.add("battleWinnerJump","champion"));
+     document.querySelectorAll(".battleCharacterFighter").forEach((f,i)=>{
+       if(!winners.includes(i))f.classList.add("battleLoserWobble");
+     });
+     $("winner").textContent=winners.length>1
+       ?"🤝 引き分け！ どちらも大健闘！"
+       :"🏆 "+playerNames[winners[0]]+" の勝利！";
+   }else{
+     $("winner").textContent="💫 全員おしい！ 今回は勝者なし！";
+   }
+ },2600);
+
+ // 勝敗を見届けてから操作ボタンを表示
+ setTimeout(()=>{
+   $("battleResultActions").classList.remove("hidden");
+ },3700);
 }
 $("battleBtn").addEventListener("click",()=>{stopBGM();playSE(seBattle);battle()});
-$("againBtn").addEventListener("click",()=>{turn=0;battleQ=0;battleAnswers=playerNames.map(()=>[]);makeBattleQuestions();startBGM();beginTurn()});
-$("playHomeBtn").addEventListener("click",()=>{clearInterval(timerId);stopBGM();document.body.classList.remove("flip");wipe();show("setup")});
-$("homeBtn").addEventListener("click",()=>{clearInterval(timerId);stopBGM();document.body.classList.remove("flip");show("setup")});
+$("againBtn").addEventListener("click",()=>{startSingleBattleRound()});
+$("charSelectAgainBtn").addEventListener("click",()=>{stopBGM();document.body.classList.remove("flip");openBattleCharacterSelect(true)});
+$("battleCharBackBtn").addEventListener("click",()=>{stopBGM();show("setup")});
+$("battleCharConfirmBtn").addEventListener("click",confirmBattleCharacter);
+$("playHomeBtn").addEventListener("click",()=>{clearInterval(timerId);stopBGM();document.body.classList.remove("flip");wipe();show("modeSelect")});
+$("homeBtn").addEventListener("click",()=>{clearInterval(timerId);stopBGM();document.body.classList.remove("flip");wipe();show("modeSelect")});
 
 // ===== ひとりで成長クエスト =====
 const CHARACTERS=[
-{id:"fire",name:"ヒノコ",stageImgs:["./assets/img_001_59212387d4.png","./assets/img_001_59212387d4.png","./assets/img_001_59212387d4.png","./assets/img_002_fb75025929.png","./assets/img_003_efccc97fc4.png"],img:"./assets/img_004_875bcd1061.png",forms:["./assets/img_004_875bcd1061.png","./assets/img_004_875bcd1061.png","./assets/img_004_875bcd1061.png","./assets/img_004_875bcd1061.png"],names:["ほのおのタマゴ","ヒノコ","ヒノフレア","炎帝ヒノドラゴン"]},
-{id:"water",name:"アクアン",stageImgs:["./assets/img_005_44ceefbe06.png","./assets/img_006_20b0ae278d.png","./assets/img_007_75e505442a.png"],names:["みずのタマゴ","アクアン","アクシード","海王アクアリオン"]},
-{id:"forest",name:"モクリン",stageImgs:["./assets/img_008_fc0ab87cb8.jpg","./assets/img_009_334c05135b.jpg","./assets/img_010_65533748e0.jpg"],forms:["./assets/img_011_b55a32476a.png","./assets/img_011_b55a32476a.png","./assets/img_011_b55a32476a.png","./assets/img_011_b55a32476a.png"],names:["もりのタマゴ","モクリン","モリガード","森王エルダー"]},
-{id:"thunder",name:"ライガ",img:"./assets/img_012_93186cf087.png",forms:["./assets/img_012_93186cf087.png","./assets/img_012_93186cf087.png","./assets/img_012_93186cf087.png","./assets/img_012_93186cf087.png"],names:["かみなりのタマゴ","ライガ","ライゼル","雷帝ヴォルト"]},
+{id:"fire",name:"ヒノコ",stageImgs:["assets/embedded_02_a153dc8f.png","assets/embedded_02_a153dc8f.png","assets/embedded_02_a153dc8f.png","assets/embedded_03_9fdbb4f0.png","assets/embedded_04_842c93c5.png"],img:"assets/embedded_05_e7d1c6b7.png",forms:["assets/embedded_05_e7d1c6b7.png","assets/embedded_05_e7d1c6b7.png","assets/embedded_05_e7d1c6b7.png","assets/embedded_05_e7d1c6b7.png"],names:["ほのおのタマゴ","ヒノコ","ヒノフレア","炎帝ヒノドラゴン"]},
+{id:"water",name:"アクアン",stageImgs:["assets/embedded_06_f091df10.png","assets/embedded_07_fcc5692d.png","assets/embedded_08_3a74987d.png"],names:["みずのタマゴ","アクアン","アクシード","海王アクアリオン"]},
+{id:"forest",name:"モクリン",stageImgs:["assets/embedded_09_bdb0fb18.jpg","assets/embedded_10_1fad2ae9.jpg","assets/embedded_11_355ab66f.jpg"],forms:["assets/embedded_12_66eed17c.png","assets/embedded_12_66eed17c.png","assets/embedded_12_66eed17c.png","assets/embedded_12_66eed17c.png"],names:["もりのタマゴ","モクリン","モリガード","森王エルダー"]},
+{id:"thunder",name:"ライガ",img:"assets/embedded_13_034d44f4.png",forms:["assets/embedded_13_034d44f4.png","assets/embedded_13_034d44f4.png","assets/embedded_13_034d44f4.png","assets/embedded_13_034d44f4.png"],names:["かみなりのタマゴ","ライガ","ライゼル","雷帝ヴォルト"]},
 {id:"dark",name:"コスミー",names:["やみ・うちゅうのタマゴ","コスミー","ルナクロウ","ノクス・ギャラクシオン"]},
 {id:"light",name:"ルミィ",names:["こうせいのタマゴ","ルミィ","ルミナス","セラフィル・エクレール"]},
 {id:"wind",name:"フウくん",names:["ふうしょうのタマゴ","フウくん","ウィンドリス","エアロス・スカイウィング"]},
-{id:"sky",name:"ソラル",img:"./assets/img_013_0e278c90ca.png",forms:["./assets/img_013_0e278c90ca.png","./assets/img_013_0e278c90ca.png","./assets/img_013_0e278c90ca.png","./assets/img_013_0e278c90ca.png"],names:["そらのタマゴ","ソラル","ウイングル","天空王ゼフィル"]},
-{id:"ice",name:"ユキル",img:"./assets/img_014_2b1abde997.png",forms:["./assets/img_014_2b1abde997.png","./assets/img_014_2b1abde997.png","./assets/img_014_2b1abde997.png","./assets/img_014_2b1abde997.png"],names:["こおりのタマゴ","ユキル","フロスティ","氷帝グレイシア"]}
+{id:"earth",name:"ロックル",names:["だいちのタマゴ","ロックル","ガイアファング","地帝ガイアロード"]},
+{id:"poison",name:"ドクル",names:["どくのタマゴ","ドクル","ベノファング","毒帝ヴェノムハウル"]},
+{id:"sound",name:"オトロン",names:["おとのタマゴ","オトロン","メロディス","音帝ハーモニア"]},
+{id:"dream",name:"ユメル",names:["ゆめのタマゴ","ユメル","ドリーミア","夢帝ルナファンタ"]},
+{id:"rainbow",name:"ニジル",names:["にじのタマゴ","ニジル","レインミア","虹帝プリズミア"]},
+{id:"sky",name:"ソラル",img:"assets/embedded_14_0df9c9a0.png",forms:["assets/embedded_14_0df9c9a0.png","assets/embedded_14_0df9c9a0.png","assets/embedded_14_0df9c9a0.png","assets/embedded_14_0df9c9a0.png"],names:["そらのタマゴ","ソラル","ウイングル","天空王ゼフィル"]},
+{id:"ice",name:"ユキル",img:"assets/embedded_15_7ffec4c2.png",forms:["assets/embedded_15_7ffec4c2.png","assets/embedded_15_7ffec4c2.png","assets/embedded_15_7ffec4c2.png","assets/embedded_15_7ffec4c2.png"],names:["こおりのタマゴ","ユキル","フロスティ","氷帝グレイシア"]}
 ];
 
 const STAGE_ART={
- fire:[null,"./assets/img_015_f9822339b0.png","./assets/img_016_7dd2016818.png","./assets/img_017_2eb6dcd329.png"],
- water:[null,"./assets/img_018_5acad91a75.png","./assets/img_019_bb39644710.png","./assets/img_020_7987f45d53.png"],
- forest:[null,"./assets/img_021_2edcbe6391.png","./assets/img_022_b238ed4e69.png","./assets/img_023_f4234ec069.png"],
- thunder:[null,"./assets/img_024_198b429f20.png","./assets/img_025_6df2f104df.png","./assets/img_026_35b523b64e.png"],
- light:[null,"./assets/img_027_2235b1f6d7.png","./assets/img_028_afc4f6d4c3.png","./assets/img_029_664453bef2.png"],
- wind:[null,"./assets/img_030_b9205611d0.png","./assets/img_031_99d77a81ca.png","./assets/img_032_311a4fe694.png"],
+ fire:[null,"assets/embedded_16_e052ca02.png","assets/embedded_17_3a7c435a.png","assets/embedded_18_b8256d92.png"],
+ water:[null,"assets/embedded_19_85f6a60c.png","assets/embedded_20_4b272fd7.png","assets/embedded_21_9cce86b4.png"],
+ forest:[null,"assets/embedded_22_725e61a7.png","assets/embedded_23_6e165bd3.png","assets/embedded_24_017786d0.png"],
+ thunder:[null,"assets/embedded_25_7f69198a.png","assets/embedded_26_7d060509.png","assets/embedded_27_6cbbe421.png"],
+ light:[null,"assets/embedded_28_41b56b62.png","assets/embedded_29_a99c828d.png","assets/embedded_30_6490f766.png"],
+ wind:[null,"assets/embedded_31_701107d3.png","assets/embedded_32_fcffb190.png","assets/embedded_33_b7b05f21.png"],
+ earth:[null,"assets/embedded_34_b3011b1b.png","assets/embedded_35_7cfdceb1.png","assets/embedded_36_1a16b0e7.png"],
+ poison:[null,"assets/embedded_37_df8f8808.png","assets/embedded_38_6047ab58.png","assets/embedded_39_4401e3ba.png"],
+ sound:[null,"assets/embedded_40_11f01c27.png","assets/embedded_41_86509333.png","assets/embedded_42_de00d63c.png"],
+ dream:[null,"assets/embedded_43_60f47119.png","assets/embedded_44_d76ef1fe.png","assets/embedded_45_b81a20df.png"],
  sky:[null,null,null,null],
  ice:[null,null,null,null],
- dark:[null,"./assets/img_033_04cc6bad25.png","./assets/img_034_0c7c9d3a3e.png","./assets/img_035_e4c266487f.png"]
+ dark:[null,"assets/embedded_46_66cad822.png","assets/embedded_47_798853e3.png","assets/embedded_48_db403a8f.png"]
 };
+STAGE_ART["rainbow"]=[null,"assets/embedded_49_f7ed02af.png","assets/embedded_50_a26779c9.png","assets/embedded_51_9d3cad78.png"];
 const QUEST_READING_BANK={
 1:[["山","やま"],["川","かわ"],["火","ひ"],["水","みず"],["木","き"],["空","そら"],["雨","あめ"],["花","はな"],["森","もり"],["犬","いぬ"],["月","つき"],["日","ひ"],["耳","みみ"],["口","くち"],["手","て"],["足","あし"],["石","いし"],["糸","いと"],["竹","たけ"],["人","ひと"]],
 2:[["春","はる"],["夏","なつ"],["秋","あき"],["冬","ふゆ"],["星","ほし"],["海","うみ"],["風","かぜ"],["雪","ゆき"],["魚","さかな"],["鳥","とり"],["馬","うま"],["雲","くも"],["岩","いわ"],["谷","たに"],["池","いけ"],["船","ふね"],["麦","むぎ"],["米","こめ"],["父","ちち"],["母","はは"]],
@@ -1602,10 +3824,22 @@ function renderChars(){
  const baseIds=["fire","water","forest","thunder","dark","light"];
  const baseComplete=baseIds.every(id=>unlocked.includes(id));
  const windIndex=CHARACTERS.findIndex(c=>c.id==="wind");
+ const earthIndex=CHARACTERS.findIndex(c=>c.id==="earth");
+ const poisonIndex=CHARACTERS.findIndex(c=>c.id==="poison");
+ const soundIndex=CHARACTERS.findIndex(c=>c.id==="sound");
+ const dreamIndex=CHARACTERS.findIndex(c=>c.id==="dream");
+ const rainbowIndex=CHARACTERS.findIndex(c=>c.id==="rainbow");
 
- // 最初は初期6体だけ。6体すべて解放すると、隠しキャラ「風」が追加される。
+ // 初期6体をすべて完全解放すると、ボーナスキャラを追加表示。
  const visibleIndexes=[0,1,2,3,4,5];
- if(baseComplete && windIndex>=0)visibleIndexes.push(windIndex);
+ if(baseComplete){
+   if(windIndex>=0)visibleIndexes.push(windIndex);
+   if(earthIndex>=0)visibleIndexes.push(earthIndex);
+   if(poisonIndex>=0)visibleIndexes.push(poisonIndex);
+   if(soundIndex>=0)visibleIndexes.push(soundIndex);
+   if(dreamIndex>=0)visibleIndexes.push(dreamIndex);
+   if(rainbowIndex>=0)visibleIndexes.push(rainbowIndex);
+ }
 
  $("characterChoices").innerHTML=visibleIndexes.map(i=>{
    const c=CHARACTERS[i];
@@ -1617,17 +3851,19 @@ function renderChars(){
    const name=open?(c.names[stage]||c.name):"?????";
    const arts=STAGE_ART[c.id]||[null,null,null,null];
    const art=arts[stage]||"";
+
    return `<div class="charCard ${quest.char===i?"selected":""} ${open?"":"lockedArt"}" data-char="${i}">
      <img class="charPortrait" src="${art}" alt="${name}" style="${art?'':'visibility:hidden'}">
      <b>${name}</b><span class="small">${label}</span>
    </div>`;
  }).join("");
 
- // 初期6キャラをすべて開放したら、風キャラが出現したことを告知。
+ // 初期6体解放後、ボーナスキャラがまだ未解放ならアナウンスを表示。
  const notice=$("bonusUnlockNotice");
  if(notice){
-   const windUnlocked=unlocked.includes("wind");
-   notice.classList.toggle("hidden",!(baseComplete&&!windUnlocked));
+   const hiddenBonusIds=["wind","earth","poison","sound","dream","rainbow"];
+   const hasLockedBonus=hiddenBonusIds.some(id=>CHARACTERS.some(c=>c.id===id) && !unlocked.includes(id));
+   notice.classList.toggle("hidden",!(baseComplete&&hasLockedBonus));
  }
 
  document.querySelectorAll("#characterChoices [data-char]").forEach(e=>
@@ -1660,11 +3896,35 @@ function renderQuest(){
    $("questAssist").textContent=q.assist;$("questAssist").classList.remove("hidden");
    $("questKanji").textContent="";
    questWipe();referenceStrokes=null;
-   loadStrictReference(q.word).then(ok=>{if(!ok)$("questFeedback").innerHTML="<b>書き順データを読み込めませんでした。通信を確認してください。</b>"});
+   referenceKanji=q.word;
+   referenceLoadPromise=loadStrictReference(q.word).then(ok=>{
+     /* 読み込み失敗を理由にゲームを止めない。
+        判定時に安全なフォールバックへ切り替える。 */
+     return ok;
+   });
  }
 }
 
-function showEvolutionCutin(stage,onClose){const c=CHARACTERS[quest.char],box=$("evolutionCutin"),art=STAGE_ART[c.id][stage];const evoTitle=stage===3?"🎉 完全体進化！ 🎉":"✨ 進化！ ✨";box.innerHTML=`<div class="cutinCard"><div class="cutinTitle">${evoTitle}</div><img class="cutinImg" src="${art}"><div class="cutinName">${c.names[stage]}</div><div class="tapHint">タップしてね</div></div>`;box.classList.toggle("finalStage",stage===3);box.classList.remove("hidden");box.classList.remove("tapReady");clearTimeout(box._tapHintTimer);box._tapHintTimer=setTimeout(()=>box.classList.add("tapReady"),2000);box.onclick=()=>{clearTimeout(box._tapHintTimer);box.classList.add("hidden");box.classList.remove("tapReady");box.classList.remove("finalStage");box.onclick=null;if(typeof onClose==="function")onClose();}}
+function showEvolutionCutin(stage,onClose){
+ const c=CHARACTERS[quest.char],box=$("evolutionCutin"),art=(STAGE_ART[c.id]||[])[stage]||"";
+ const evoTitle=stage===3?"🎉 完全体進化！ 🎉":"✨ 進化！ ✨";
+ box.innerHTML=`<div class="cutinCard"><div class="cutinTitle">${evoTitle}</div><img class="cutinImg" src="${art}"><div class="cutinName">${c.names[stage]}</div><div class="tapHint">タップしてね</div></div>`;
+ box.classList.toggle("finalStage",stage===3);
+ box.classList.toggle("windCutin",c.id==="wind"||c.id==="earth"||c.id==="poison"||c.id==="sound"||c.id==="dream"||c.id==="rainbow");
+ box.classList.remove("hidden");
+ box.classList.remove("tapReady");
+ clearTimeout(box._tapHintTimer);
+ box._tapHintTimer=setTimeout(()=>box.classList.add("tapReady"),2000);
+ box.onclick=()=>{
+   clearTimeout(box._tapHintTimer);
+   box.classList.add("hidden");
+   box.classList.remove("tapReady");
+   box.classList.remove("finalStage");
+   box.classList.remove("windCutin");
+   box.onclick=null;
+   if(typeof onClose==="function")onClose();
+ };
+}
 
 function fitQuestFeedback(){
  const el=$("questFeedback"); if(!el||!$("questPlay").classList.contains("answered"))return;
@@ -1712,12 +3972,184 @@ if(window.KanjiGameOverV93 && quest.exp < window.KanjiGameOverV93.needForStage(3
   window.KanjiGameOverV93.gameOver(`⭐ 最終進化EXP不足！ EXP ${quest.exp} / ${window.KanjiGameOverV93.needForStage(3)}`);return;
 }
 quest.stage=3;let c=CHARACTERS[quest.char];saveQuestStage(c.id,3);$("finalCharacter").innerHTML=`<div class="evoStage stage3"><img class="questPortrait" src="${STAGE_ART[c.id][3]}"></div>`;$("finalCharacter").classList.add("evolve");$("finalName").textContent=c.names[3]+" に最終進化！";$("questSummary").textContent=`10問中 ${quest.correct}問正解！ 獲得EXP ${quest.exp}`;let unlocked=JSON.parse(localStorage.getItem("kanjiQuestCollection")||"[]");if(!unlocked.includes(c.id)){unlocked.push(c.id);localStorage.setItem("kanjiQuestCollection",JSON.stringify(unlocked))}playSE(seBattle);showEvolutionCutin(3,()=>show("questClearScreen"))}
+
+const COLLECTION_ATTRIBUTES={
+ fire:"🔥 火属性",
+ water:"💧 水属性",
+ forest:"🌿 森属性",
+ thunder:"⚡ 雷属性",
+ dark:"🌙 闇属性",
+ light:"✨ 光属性",
+ wind:"🌪️ 風属性",
+ earth:"🪨 大地属性",
+ poison:"☠️ 毒属性",
+ sound:"🎵 音属性",
+ dream:"💭 夢属性",
+ rainbow:"🌈 虹属性",
+ sky:"☁️ 空属性",
+ ice:"❄️ 氷属性"
+};
+
+const COLLECTION_DESCRIPTIONS={
+ fire:[
+   "小さな炎から生まれた元気いっぱいの幼体。うれしくなると頭と尻尾の火が大きく揺れる。",
+   "炎を自在にまとえるようになった成体。素早い動きと熱い爪で仲間を守りながら戦う。",
+   "すべてを照らす灼熱の力を極めた炎の帝王。巨大な炎を翼のように操り、勇気ある者を導く。"
+ ],
+ water:[
+   "澄んだ水のしずくから生まれた幼体。水遊びが大好きで、小さな波を起こして進む。",
+   "水流を操る力が強くなった成体。しなやかな動きで相手の攻撃を受け流し、仲間を包み込む。",
+   "大海の力を従える海の王。荒波さえ意のままに操り、静けさと力強さをあわせ持つ。"
+ ],
+ forest:[
+   "新芽と木漏れ日の力を宿した幼体。歩いたあとには小さな草花が芽吹くことがある。",
+   "森の生命力を身にまとった成体。枝葉と大地の力で仲間を守り、傷ついた森を元気にする。",
+   "古き森の記憶を受け継ぐ森の王。巨木のような強さと、すべての命を包む優しさを持つ。"
+ ],
+ thunder:[
+   "パチパチとはじける電気から生まれた幼体。興奮すると体のまわりに小さな稲妻が走る。",
+   "雷をまとい高速で駆ける成体。一瞬で間合いを詰め、鋭い雷撃を放つ。",
+   "天空を裂く雷を支配する雷帝。轟音とともに降り立ち、圧倒的な電撃で道を切り開く。"
+ ],
+ dark:[
+   "夜空と不思議な闇の力を宿した幼体。星の光を集めることが好きで、静かな場所を好む。",
+   "月影と闇をまとって成長した成体。姿を隠しながら、相手の動きを見極めるのが得意。",
+   "宇宙の深い闇と星々の力を操る神秘の完全体。静寂の中から強大な力を解き放つ。"
+ ],
+ light:[
+   "やわらかな光から生まれた幼体。近くにいる仲間を明るい気持ちにする不思議な輝きを持つ。",
+   "光の羽と守りの力を得た成体。まばゆい光で仲間を守り、暗闇を照らす。",
+   "神聖な光をまとった天空の守護者。大きな翼から希望の光を降らせ、闇を払いのける。"
+ ],
+ wind:[
+   "そよ風と若葉の力を宿した幼体。体がとても軽く、風に乗ってふわりと跳ぶ。",
+   "翼と風を自在に操れるようになった成体。疾風のような速さで空を駆ける。",
+   "天空を自由に翔ける風の覇者。巨大な翼で嵐さえ操り、どこまでも高く飛び続ける。"
+ ],
+ earth:[
+   "土と小さな岩から生まれた幼体。頭の芽を大切に育てている、のんびり屋さん。",
+   "岩の鎧をまとった成体。強い脚力と頑丈な体で、仲間の前に立って攻撃を受け止める。",
+   "大地の力を極めた巨大な守護獣。岩山を思わせる体と結晶の力で、揺るがぬ守りを築く。"
+ ],
+ poison:[
+   "毒の力を小さく宿した幼体。見た目はかわいいが、紫の霧には少しだけしびれる力がある。",
+   "毒霧と毒液を操る成体。相手の力を少しずつ弱らせ、動きを封じる戦いを得意とする。",
+   "猛毒を完全に支配した毒の帝王。紫と緑の毒気を自在に操り、近づく者を圧倒する。"
+ ],
+ sound:[
+   "音符とやさしい音色から生まれた幼体。楽しい気持ちになると周囲に小さなメロディーが舞う。",
+   "音と振動を自在に操る成体。美しい旋律で味方を励まし、鋭い音波で敵を攻撃する。",
+   "無数の旋律を束ねる音の支配者。壮大な音楽と衝撃波を生み出し、戦場そのものを奏でる。"
+ ],
+ dream:[
+   "夢と星のきらめきを宿した幼体。ふわふわの雲に乗り、近くにいる相手をやさしい眠りへ誘う。",
+   "幻の世界を描けるようになった成体。月と星の力で敵をまどわせ、仲間の心を落ち着かせる。",
+   "夢幻の世界を支配する夢の帝王。美しい幻で敵を眠りの世界へ閉じ込め、癒やしの光で味方の心を包み込む。"
+ ],
+ rainbow:[
+   "七色のきらめきを宿した幼体。小さな虹をふわりと生み出し、見た人の心を明るくする。",
+   "虹の光を自在にまとった成体。希望の光で味方を元気づけ、まばゆい一撃で敵をひるませる。",
+   "七色の奇跡を司る虹の帝王。癒やしと浄化の光を降らせ、強大な虹光で敵を打ち砕く。"
+ ],
+ sky:[
+   "青空の風をまとって生まれた幼体。雲の間を跳ねるように移動する。",
+   "空を自由に飛べる翼を得た成体。高い場所から仲間を見守り、素早く助けに向かう。",
+   "大空を統べる天空の王。雲と気流を操り、広い空を守護する。"
+ ],
+ ice:[
+   "雪の結晶から生まれた幼体。冷たい空気が好きで、足元に小さな霜を作る。",
+   "氷を鎧のようにまとった成体。氷の刃と冷気を使って相手の動きを鈍らせる。",
+   "極寒の力を極めた氷の帝王。巨大な氷晶を生み出し、静かで美しい氷の世界を作り出す。"
+ ]
+};
+
+const COLLECTION_STAGE_LABELS=["","幼体","成体","完全体"];
+
+function openCollectionDetail(charIndex){
+ const unlocked=JSON.parse(localStorage.getItem("kanjiQuestCollection")||"[]");
+ const c=CHARACTERS[charIndex];
+ if(!c || !unlocked.includes(c.id))return;
+
+ const arts=STAGE_ART[c.id]||[null,null,null,null];
+ const descriptions=COLLECTION_DESCRIPTIONS[c.id]||[
+   "まだ詳しい記録は見つかっていません。",
+   "まだ詳しい記録は見つかっていません。",
+   "まだ詳しい記録は見つかっていません。"
+ ];
+
+ $("collectionDetailTitle").textContent=(c.names[3]||c.name)+" の進化図鑑";
+ $("collectionDetailAttribute").textContent=COLLECTION_ATTRIBUTES[c.id]||"属性不明";
+ $("collectionLorePanel").classList.add("hidden");
+
+ $("collectionEvolutionCards").innerHTML=[1,2,3].map(stage=>{
+   const name=c.names[stage]||c.name;
+   const art=arts[stage]||"";
+   const description=descriptions[stage-1]||"";
+   const attribute=COLLECTION_ATTRIBUTES[c.id]||"属性不明";
+
+   return `<button class="evolutionBookCard" data-stage="${stage}" type="button" aria-label="${name}の詳細を表示">
+     <div class="evolutionBookStage">${COLLECTION_STAGE_LABELS[stage]}</div>
+     <div class="evolutionBookArt">
+       <img src="${art}" alt="${name}">
+     </div>
+     <div class="evolutionBookName">${name}</div>
+     <div class="evolutionBookTap">タップして詳細</div>
+
+     <div class="evolutionBookOverlay hidden" aria-hidden="true">
+       <div class="evolutionOverlayStage">${attribute} ／ ${COLLECTION_STAGE_LABELS[stage]}</div>
+       <div class="evolutionOverlayName">${name}</div>
+       <div class="evolutionOverlayText">${description}</div>
+       <div class="evolutionOverlayClose">タップで閉じる</div>
+     </div>
+   </button>`;
+ }).join("");
+
+ document.querySelectorAll("#collectionEvolutionCards .evolutionBookCard").forEach(card=>{
+   const overlay=card.querySelector(".evolutionBookOverlay");
+
+   card.addEventListener("click",e=>{
+     if(e.target.closest(".evolutionBookOverlay"))return;
+
+     document.querySelectorAll("#collectionEvolutionCards .evolutionBookOverlay")
+       .forEach(x=>{
+         x.classList.add("hidden");
+         x.setAttribute("aria-hidden","true");
+       });
+
+     document.querySelectorAll("#collectionEvolutionCards .evolutionBookCard")
+       .forEach(x=>x.classList.remove("active"));
+
+     card.classList.add("active");
+     overlay.classList.remove("hidden");
+     overlay.setAttribute("aria-hidden","false");
+     playSE(seClick);
+   });
+
+   overlay.addEventListener("click",e=>{
+     e.stopPropagation();
+     overlay.classList.add("hidden");
+     overlay.setAttribute("aria-hidden","true");
+     card.classList.remove("active");
+     playSE(seClick);
+   });
+ });
+
+ show("collectionDetailScreen");
+}
+
 function renderCollection(){
  const unlocked=JSON.parse(localStorage.getItem("kanjiQuestCollection")||"[]");
  const progress=getQuestProgress();
  const baseIds=["fire","water","forest","thunder","dark","light"];
  const baseComplete=baseIds.every(id=>unlocked.includes(id));
- const visible=CHARACTERS.filter(c=>c.id!=="wind" || baseComplete);
+
+ const visible=CHARACTERS.filter(c=>{
+   // 現在ゲームに実装済みのキャラだけ図鑑へ表示する。
+   // sky / ice は未実装の予約枠なので、空カードとして表示しない。
+   if(c.id==="sky"||c.id==="ice")return false;
+   if(c.id==="wind"||c.id==="earth"||c.id==="poison"||c.id==="sound"||c.id==="dream"||c.id==="rainbow")return baseComplete;
+   return true;
+ });
 
  $("collectionGrid").innerHTML=visible.map(c=>{
    const i=CHARACTERS.findIndex(x=>x.id===c.id);
@@ -1726,16 +4158,65 @@ function renderCollection(){
    const stage=cardStageFor(c,unlocked,progress);
    const partial=!ok&&saved>0;
    const name=ok?(c.names[stage]||c.name):"?????";
-   const label=ok?"GET!":partial?(stage===2?"成体まで解放":"幼体まで解放"):"未解放";
+   const label=ok?"GET!・タップで詳細":partial?(stage===2?"成体まで解放":"幼体まで解放"):"未解放";
    const arts=STAGE_ART[c.id]||[null,null,null,null];
    const art=arts[stage]||"";
-   return `<div class="charCard ${ok?"":"lockedArt"} ${c.id==="water"?"water-card":""}" data-char="${i}">
+
+   return `<div class="charCard ${ok?"collectionOpen":""} ${ok?"":"lockedArt"} ${c.id==="water"?"water-card":""}" data-char="${i}" ${ok?'role="button" tabindex="0"':''}>
      <img class="charPortrait" src="${art}" alt="${name}" style="${art?'':'visibility:hidden'}">
      <b>${name}</b><span class="small">${label}</span>
    </div>`;
  }).join("");
+
+ document.querySelectorAll("#collectionGrid .charCard.collectionOpen").forEach(card=>{
+   const openDetail=()=>openCollectionDetail(+card.dataset.char);
+   card.addEventListener("click",openDetail);
+   card.addEventListener("keydown",e=>{
+     if(e.key==="Enter"||e.key===" "){e.preventDefault();openDetail();}
+   });
+ });
 }
 // For words with multiple characters this first prototype judges handwriting effort + neat use of the square.
+
+function questFallbackWritingJudge(word){
+ const expected=QUEST_STROKE_FALLBACK[word];
+ if(!expected)return false;
+
+ const pts=qStrokes.flat();
+ if(!pts.length)return false;
+
+ const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+ const w=Math.max(...xs)-Math.min(...xs);
+ const h=Math.max(...ys)-Math.min(...ys);
+ const cx=(Math.max(...xs)+Math.min(...xs))/2;
+ const cy=(Math.max(...ys)+Math.min(...ys))/2;
+
+ const neat=Math.max(0,Math.min(100,Math.round(100*(
+   .50*Math.max(0,1-Math.hypot(cx-215,cy-215)/300)+
+   .35*Math.min(1,(w*h)/(430*430)/.40)+
+   .15*Math.min(1,qStrokes.filter(x=>x.length>=4).length/qStrokes.length)
+ ))));
+
+ const countOK=qStrokes.length===expected;
+ const ok=countOK;
+
+ reward(ok,ok&&neat>=85?10:0);
+
+ if(ok){
+   $("questFeedback").innerHTML+=
+     `<p>✅ 正解！<br>✨ きれいさ <b>${neat}点</b><br>`+
+     `<span class="small">字の位置・大きさ・クセは読み取れる範囲なら正解です。</span></p>`;
+ }else{
+   $("questFeedback").innerHTML+=
+     `<div class="judgeExplain"><b>💡 ここを直そう</b><br>`+
+     `画数が違います。正しくは <b>${expected}画</b> です。<br>`+
+     `<span class="small">もう一度、一画ずつ書いてみよう。</span></div>`;
+ }
+
+ setTimeout(fitQuestFeedback,0);
+ return true;
+}
+
 const qc=$("questPad"),qx=qc.getContext("2d");qx.lineWidth=12;qx.lineCap="round";qx.lineJoin="round";qx.strokeStyle="#111";let qDraw=false,qCur=[],qStrokes=[];
 function qPoint(e){let r=qc.getBoundingClientRect();return{x:(e.clientX-r.left)*430/r.width,y:(e.clientY-r.top)*430/r.height}}
 qc.addEventListener("pointerdown",e=>{e.preventDefault();qDraw=true;qCur=[qPoint(e)];qx.beginPath();qx.moveTo(qCur[0].x,qCur[0].y)});
@@ -1743,40 +4224,113 @@ qc.addEventListener("pointermove",e=>{if(!qDraw)return;e.preventDefault();let p=
 window.addEventListener("pointerup",()=>{if(qDraw&&qCur.length>1)qStrokes.push(qCur);qDraw=false;qCur=[]});
 function questWipe(){qx.clearRect(0,0,430,430);qStrokes=[]}
 $("questClear").addEventListener("click",questWipe);$("questUndo").addEventListener("click",()=>{qStrokes.pop();qx.clearRect(0,0,430,430);qStrokes.forEach(s=>{qx.beginPath();qx.moveTo(s[0].x,s[0].y);s.slice(1).forEach(p=>qx.lineTo(p.x,p.y));qx.stroke()})});
-$("questJudge").addEventListener("click",()=>{
- if(!qStrokes.length){$("questFeedback").textContent="まず漢字を書いてね！";return}
- if(!referenceStrokes){$("questFeedback").textContent="書き順データを読み込み中です。少し待ってから判定してください。";return}
- const countOK=qStrokes.length===referenceStrokes.length;
- const norm=normalizeUserForReference(qStrokes,referenceStrokes);
- const ds=referenceStrokes.map((r,i)=>strokeDiagnostics(norm[i],r));
- const wrongDir=ds.map((d,i)=>d.direction<.62?i+1:null).filter(Boolean);
- const wrongShape=ds.map((d,i)=>d.score<.48?i+1:null).filter(Boolean);
- const orderScore=Math.round(100*ds.reduce((a,b)=>a+b.score,0)/ds.length);
- const ok=countOK&&wrongDir.length===0&&wrongShape.length===0&&orderScore>=58;
- let pts=qStrokes.flat(),xs=pts.map(p=>p.x),ys=pts.map(p=>p.y),w=Math.max(...xs)-Math.min(...xs),h=Math.max(...ys)-Math.min(...ys),cx=(Math.max(...xs)+Math.min(...xs))/2,cy=(Math.max(...ys)+Math.min(...ys))/2;
- let neat=Math.max(0,Math.min(100,Math.round(100*(.50*Math.max(0,1-Math.hypot(cx-215,cy-215)/300)+.35*Math.min(1,(w*h)/(430*430)/.40)+.15*Math.min(1,qStrokes.filter(x=>x.length>=4).length/qStrokes.length)))));
- reward(ok,ok&&neat>=85?10:0);
- if(ok){
-   $("questFeedback").innerHTML+=`<p>✅ 正解！ 書き順も合っています。<br>✨ きれいさ <b>${neat}点</b> ／ 書き順 ${orderScore}点<br><span class="small">字の位置・大きさ・クセは読み取れる範囲なら正解です。</span></p>`;
- }else{
-   let r=[];
-   if(!countOK)r.push(`画数が違います。正しくは <b>${referenceStrokes.length}画</b> です。`);
-   if(wrongDir.length)r.push(`<b>${wrongDir.join("・")}画目</b>の書く向き、または書き順が違います。`);
-   else if(wrongShape.length)r.push(`<b>${wrongShape.join("・")}画目</b>の運筆を確認してみよう。`);
-   if(!r.length)r.push("書き順をもう一度お手本と比べてみよう。");
-   $("questFeedback").innerHTML+=`<div class="judgeExplain"><b>💡 ここを直そう</b><br>${r.join("<br>")}<br><span class="small">見た目のズレや字のクセだけでは不正解にしていません。</span></div>`;
+$("questJudge").addEventListener("click",async()=>{
+ if(questJudgeBusy || quest.answered)return;
+
+ const btn=$("questJudge");
+ const originalText=btn.textContent;
+ questJudgeBusy=true;
+
+ try{
+   if(!qStrokes.length){
+     $("questFeedback").textContent="まず漢字を書いてね！";
+     return;
+   }
+
+   const current=quest.questions[quest.q];
+   const word=current.word;
+
+   /* 問題切替直後なら、その問題の書き順データを少しだけ待つ */
+   if(referenceKanji===word && referenceLoadState==="loading" && !referenceStrokes){
+     btn.textContent="読込中…";
+     await Promise.race([
+       referenceLoadPromise,
+       new Promise(resolve=>setTimeout(()=>resolve(false),2000))
+     ]);
+   }
+
+   /* 違う問題のデータが残っていた場合は使わない */
+   if(referenceKanji!==word)referenceStrokes=null;
+
+   /* 糸で通信・読込が失敗しても、判定ボタンを止めない */
+   if(!referenceStrokes){
+     if(questFallbackWritingJudge(word))return;
+
+     $("questFeedback").innerHTML=
+       "<b>書き順データを読み込めませんでした。</b><br>"+
+       "<span class='small'>もう一度「判定！」を押すと再読み込みします。</span>";
+
+     referenceLoadPromise=loadStrictReference(word);
+     return;
+   }
+
+   const countOK=qStrokes.length===referenceStrokes.length;
+   const norm=normalizeUserForReference(qStrokes,referenceStrokes);
+   const ds=referenceStrokes.map((r,i)=>strokeDiagnostics(norm[i],r));
+   const wrongDir=ds.map((d,i)=>d.direction<.62?i+1:null).filter(Boolean);
+   const wrongShape=ds.map((d,i)=>d.score<.48?i+1:null).filter(Boolean);
+   const orderScore=Math.round(100*ds.reduce((a,b)=>a+b.score,0)/Math.max(1,ds.length));
+   const ok=countOK&&wrongDir.length===0&&wrongShape.length===0&&orderScore>=58;
+
+   const pts=qStrokes.flat();
+   const xs=pts.map(p=>p.x),ys=pts.map(p=>p.y);
+   const w=Math.max(...xs)-Math.min(...xs);
+   const h=Math.max(...ys)-Math.min(...ys);
+   const cx=(Math.max(...xs)+Math.min(...xs))/2;
+   const cy=(Math.max(...ys)+Math.min(...ys))/2;
+
+   const neat=Math.max(0,Math.min(100,Math.round(100*(
+     .50*Math.max(0,1-Math.hypot(cx-215,cy-215)/300)+
+     .35*Math.min(1,(w*h)/(430*430)/.40)+
+     .15*Math.min(1,qStrokes.filter(x=>x.length>=4).length/qStrokes.length)
+   ))));
+
+   reward(ok,ok&&neat>=85?10:0);
+
+   if(ok){
+     $("questFeedback").innerHTML+=
+       `<p>✅ 正解！ 書き順も合っています。<br>`+
+       `✨ きれいさ <b>${neat}点</b> ／ 書き順 ${orderScore}点<br>`+
+       `<span class="small">字の位置・大きさ・クセは読み取れる範囲なら正解です。</span></p>`;
+   }else{
+     const r=[];
+     if(!countOK)r.push(`画数が違います。正しくは <b>${referenceStrokes.length}画</b> です。`);
+     if(wrongDir.length)r.push(`<b>${wrongDir.join("・")}画目</b>の書く向き、または書き順が違います。`);
+     else if(wrongShape.length)r.push(`<b>${wrongShape.join("・")}画目</b>の運筆を確認してみよう。`);
+     if(!r.length)r.push("書き順をもう一度お手本と比べてみよう。");
+
+     $("questFeedback").innerHTML+=
+       `<div class="judgeExplain"><b>💡 ここを直そう</b><br>${r.join("<br>")}<br>`+
+       `<span class="small">見た目のズレや字のクセだけでは不正解にしていません。</span></div>`;
+   }
+
+   setTimeout(fitQuestFeedback,0);
+
+ }catch(err){
+   console.error("questJudge error",err);
+
+   /* 糸だけは、予期しない判定例外が起きてもゲームを止めない */
+   const word=(quest.questions[quest.q]||{}).word;
+   if(!questFallbackWritingJudge(word)){
+     $("questFeedback").innerHTML=
+       "<b>判定処理をやり直してください。</b><br>"+
+       "<span class='small'>書いた文字は消えていません。そのままもう一度「判定！」を押せます。</span>";
+   }
+ }finally{
+   btn.textContent=originalText;
+   btn.disabled=false;
+   questJudgeBusy=false;
  }
- setTimeout(fitQuestFeedback,0);
 });
 
 $("multiModeBtn").addEventListener("click",()=>show("setup"));
 $("questModeBtn").addEventListener("click",()=>{show("questSetup");try{renderChars()}catch(e){console.error(e)}});
 $("collectionBtn").addEventListener("click",()=>{renderCollection();show("collectionScreen")});
-$("setupBackBtn").addEventListener("click",()=>show("modeSelect"));$("questBackBtn").addEventListener("click",()=>show("modeSelect"));$("collectionBack").addEventListener("click",()=>show("modeSelect"));
+$("setupBackBtn").addEventListener("click",()=>show("modeSelect"));$("questBackBtn").addEventListener("click",()=>show("modeSelect"));$("collectionBack").addEventListener("click",()=>show("modeSelect"));$("collectionDetailBack").addEventListener("click",()=>{renderCollection();show("collectionScreen")});
 $("questStartBtn").addEventListener("click",()=>{startBGM();startQuest()});$("questQuit").addEventListener("click",()=>{stopQuestTimer();stopBGM();show("modeSelect")});$("questAgain").addEventListener("click",()=>{renderChars();show("questSetup")});$("questHome").addEventListener("click",()=>{stopQuestTimer();stopBGM();show("modeSelect")});
 
 </script>
-<div id="roundResultOverlay" class="roundResultOverlay">
+<div id="roundResultOverlay" class="roundResultOverlay hidden" aria-hidden="true">
  <div class="roundResultCard">
   <h2 id="roundTitle">第1問 結果</h2>
   <div id="roundWinner" class="roundWinner"></div>
@@ -1957,19 +4511,619 @@ body.waterQuest #questPlay .questPortrait {
 
 <script id="v1027-water-assets">
 window.WATER_EVOLUTION_IMAGES = [
-  "./assets/img_018_5acad91a75.png",
-  "./assets/img_019_bb39644710.png",
-  "./assets/img_020_7987f45d53.png"
+  "assets/embedded_19_85f6a60c.png",
+  "assets/embedded_20_4b272fd7.png",
+  "assets/embedded_21_9cce86b4.png"
 ];
 </script>
 
 
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./service-worker.js').catch(console.error);
+<script id="v1065-goddess-mode-js">
+(function(){
+  const ALL_APOSTLES=[
+    "fire","water","forest","thunder","dark","light",
+    "wind","earth","poison","sound","dream","rainbow"
+  ];
+  const INTRO_KEY="kanjiGoddessIntroSeenV1065";
+  const REALM_KEY="kanjiQuestRealmV1065";
+  const GODDESS_COLLECTION_KEY="kanjiGoddessCollectionV1065";
+
+  let currentRealm=localStorage.getItem(REALM_KEY)==="goddess" ? "goddess" : "apostle";
+  let goddessDialogueIndex=0;
+  let goddessIntroRunning=false;
+
+  const originalShow=window.show;
+  const originalRenderChars=window.renderChars;
+  const originalStartQuest=window.startQuest;
+  const originalQuestStatus=window.questStatus;
+  const originalReward=window.reward;
+  const originalFinishQuest=window.finishQuest;
+
+  const dialogueLines=[
+    "私は漢字ゲームの女神。よくぞ、12体の神の使いを開放してくれました。次は私の友人の開放を頼みます。",
+    "ですが、今までより難しくなります。小学4年生より上の問題をクリアしなければ開放されません。",
+    "ぜひとも、全員の開放をお願いします。あなたなら、かならずできます"
+  ];
+
+  function introSeen(){
+    return localStorage.getItem(INTRO_KEY)==="1";
+  }
+
+  function apostleCollection(){
+    try{return JSON.parse(localStorage.getItem("kanjiQuestCollection")||"[]")||[]}
+    catch(e){return []}
+  }
+
+  function allTwelveUnlocked(){
+    const unlocked=apostleCollection();
+    return ALL_APOSTLES.every(id=>unlocked.includes(id));
+  }
+
+  function goddessCollection(){
+    try{return JSON.parse(localStorage.getItem(GODDESS_COLLECTION_KEY)||"[]")||[]}
+    catch(e){return []}
+  }
+
+  function fireGoddessUnlocked(){
+    return goddessCollection().includes("fire_goddess");
+  }
+
+  function saveFireGoddessUnlock(){
+    const list=goddessCollection();
+    if(!list.includes("fire_goddess")){
+      list.push("fire_goddess");
+      localStorage.setItem(GODDESS_COLLECTION_KEY,JSON.stringify(list));
+    }
+  }
+
+  function buildGradeOptions(realm){
+    const sel=document.getElementById("questGrade");
+    if(!sel)return;
+    const old=Number(sel.value||3);
+    const grades=realm==="goddess" ? [4,5,6] : [1,2,3,4,5,6];
+    sel.innerHTML=grades.map(g=>`<option value="${g}">小学${g}年生</option>`).join("");
+    const next=grades.includes(old) ? old : (realm==="goddess" ? 4 : 3);
+    sel.value=String(next);
+  }
+
+  function updateSwitch(){
+    const sw=document.getElementById("questRealmSwitch");
+    if(!sw)return;
+    sw.classList.toggle("hidden",!introSeen());
+    document.getElementById("apostleModeBtn")?.classList.toggle("active",currentRealm==="apostle");
+    document.getElementById("goddessModeBtn")?.classList.toggle("active",currentRealm==="goddess");
+  }
+
+  function applyApostleUI(){
+    const setup=document.getElementById("questSetup");
+    setup?.classList.remove("goddessRealm");
+    document.getElementById("questSetupTitle").textContent="🌱 成長クエスト";
+    document.getElementById("questPartnerTitle").textContent="相棒を選ぼう！";
+    document.getElementById("questRules").innerHTML=
+      '<b>⚠️ ゲームオーバーに注意！</b><br>'+
+      '❌ 3回まちがえる<br>⏱️ 時間切れになる<br>⭐ 進化に必要なEXPが足りない<br>'+
+      'このどれかでゲームオーバー！ 育成は最初からになるよ。正確に答えて最終進化をめざそう！<br>全キャラ開放で、、、！？';
+    document.getElementById("goddessChallengeNotice")?.classList.add("hidden");
+    const reset=document.getElementById("charResetBtn");
+    if(reset)reset.style.display="";
+    buildGradeOptions("apostle");
+    const start=document.getElementById("questStartBtn");
+    if(start){
+      start.disabled=false;
+      start.textContent="冒険スタート！";
+    }
+    updateSwitch();
+  }
+
+  function renderGoddessChars(){
+    const setup=document.getElementById("questSetup");
+    setup?.classList.add("goddessRealm");
+    document.getElementById("questSetupTitle").textContent="👑 女神モード";
+    document.getElementById("questPartnerTitle").textContent="女神の試練に挑もう！";
+    document.getElementById("questRules").innerHTML=
+      '<b>👑 女神モードのルール</b><br>'+
+      '女神は一体ずつ開放していく特別な試練です。<br>'+
+      '❌ 3回まちがえる / ⏱️ 時間切れで失敗<br>'+
+      '小学4〜6年生の問題だけが出題されます。まずは <b>🔥 火の女神</b> の封印を解こう！';
+
+    buildGradeOptions("goddess");
+
+    const reset=document.getElementById("charResetBtn");
+    if(reset)reset.style.display="none";
+
+    const notice=document.getElementById("bonusUnlockNotice");
+    if(notice)notice.classList.add("hidden");
+
+    const trialNotice=document.getElementById("goddessChallengeNotice");
+    if(trialNotice){
+      trialNotice.classList.remove("hidden");
+      trialNotice.innerHTML=fireGoddessUnlocked()
+        ? '🔥 <b>第1の試練：火の女神</b><br>開放済みです。次の女神の試練を待とう。'
+        : '🔥 <b>第1の試練：火の女神</b><br>小学4〜6年生の問題を10問走破して、女神の封印を解放しよう！';
+    }
+
+    const grid=document.getElementById("characterChoices");
+    grid.className="charGrid goddessTrialGrid";
+    const unlocked=fireGoddessUnlocked();
+    grid.innerHTML=`
+      <div class="goddessTrialCard selected ${unlocked?"unlocked":""}" data-goddess-trial="fire">
+        <div class="goddessFireSeal">
+          <div class="goddessFireIcon">🔥</div>
+          <div class="goddessQuestionMark">?</div>
+        </div>
+        <b>${unlocked?"火の女神":"?????"}</b>
+        <span>${unlocked?"✨ 開放済み":"🔒 未開放・最初の試練"}</span>
+      </div>`;
+
+    if(window.quest){
+      quest.realm="goddess";
+      quest.goddessId="fire_goddess";
+    }
+
+    const start=document.getElementById("questStartBtn");
+    if(start){
+      start.disabled=unlocked;
+      start.textContent=unlocked ? "🔥 火の女神 開放済み" : "🔥 火の女神の試練へ！";
+    }
+
+    updateSwitch();
+  }
+
+  function setRealm(realm){
+    if(realm==="goddess" && !introSeen())return;
+    currentRealm=realm==="goddess" ? "goddess" : "apostle";
+    localStorage.setItem(REALM_KEY,currentRealm);
+    if(currentRealm==="goddess"){
+      renderGoddessChars();
+    }else{
+      applyApostleUI();
+      originalRenderChars();
+    }
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  /* renderChars をモード対応にする */
+  window.renderChars=function(){
+    updateSwitch();
+    if(introSeen() && currentRealm==="goddess"){
+      renderGoddessChars();
+      return;
+    }
+    currentRealm="apostle";
+    localStorage.setItem(REALM_KEY,currentRealm);
+    applyApostleUI();
+    originalRenderChars();
+  };
+
+  /* questSetup が開かれたとき、12体開放済みなら一度だけ女神イベント */
+  window.show=function(id){
+    originalShow(id);
+    if(id==="questSetup"){
+      setTimeout(()=>{
+        updateSwitch();
+        if(allTwelveUnlocked() && !introSeen() && !goddessIntroRunning){
+          startGoddessIntro();
+        }
+      },100);
+    }
+  };
+
+  function makeParticles(){
+    const box=document.getElementById("goddessParticles");
+    if(!box)return;
+    box.innerHTML="";
+    const count=42;
+    for(let i=0;i<count;i++){
+      const p=document.createElement("span");
+      p.className="goddessParticle";
+      const angle=(Math.PI*2*i/count)+(i%3)*.17;
+      const distance=170+(i%8)*42;
+      const sx=Math.cos(angle)*distance;
+      const sy=Math.sin(angle)*distance*1.25;
+      p.style.setProperty("--sx",sx.toFixed(1)+"px");
+      p.style.setProperty("--sy",sy.toFixed(1)+"px");
+      p.style.setProperty("--delay",(i%9)*.065+"s");
+      box.appendChild(p);
+    }
+  }
+
+  function showDialogueLine(){
+    document.getElementById("goddessDialogueText").textContent=dialogueLines[goddessDialogueIndex];
+    document.getElementById("goddessDialogueCount").textContent=`${goddessDialogueIndex+1} / ${dialogueLines.length}`;
+    document.getElementById("goddessDialogueNext").textContent=
+      goddessDialogueIndex===dialogueLines.length-1 ? "女神モードへ ✨" : "次へ ▶";
+  }
+
+  function startGoddessIntro(){
+    goddessIntroRunning=true;
+    goddessDialogueIndex=0;
+    const overlay=document.getElementById("goddessIntroOverlay");
+    if(!overlay)return;
+
+    makeParticles();
+    overlay.classList.remove("hidden","revealed","closing","playing");
+    overlay.setAttribute("aria-hidden","false");
+    void overlay.offsetWidth;
+    overlay.classList.add("playing");
+
+    showDialogueLine();
+    setTimeout(()=>overlay.classList.add("revealed"),3400);
+    if(typeof playSE==="function"){
+      try{playSE(seConfirm)}catch(e){}
+    }
+  }
+
+  function finishGoddessIntro(){
+    localStorage.setItem(INTRO_KEY,"1");
+    currentRealm="goddess";
+    localStorage.setItem(REALM_KEY,"goddess");
+    updateSwitch();
+
+    const overlay=document.getElementById("goddessIntroOverlay");
+    overlay.classList.add("closing");
+    setTimeout(()=>{
+      overlay.classList.add("hidden");
+      overlay.classList.remove("revealed","closing","playing");
+      overlay.setAttribute("aria-hidden","true");
+      goddessIntroRunning=false;
+      renderGoddessChars();
+      window.scrollTo({top:0,behavior:"smooth"});
+    },430);
+  }
+
+  document.getElementById("goddessDialogueNext")?.addEventListener("click",()=>{
+    if(goddessDialogueIndex<dialogueLines.length-1){
+      goddessDialogueIndex++;
+      showDialogueLine();
+      if(typeof playSE==="function"){try{playSE(seClick)}catch(e){}}
+    }else{
+      if(typeof playSE==="function"){try{playSE(seBattle)}catch(e){}}
+      finishGoddessIntro();
+    }
   });
-}
+
+  document.getElementById("apostleModeBtn")?.addEventListener("click",()=>{
+    if(typeof playSE==="function"){try{playSE(seClick)}catch(e){}}
+    setRealm("apostle");
+  });
+
+  document.getElementById("goddessModeBtn")?.addEventListener("click",()=>{
+    if(typeof playSE==="function"){try{playSE(seClick)}catch(e){}}
+    setRealm("goddess");
+  });
+
+  /* 女神モード中のクエスト開始 */
+  window.startQuest=function(){
+    if(currentRealm==="goddess" && introSeen()){
+      if(fireGoddessUnlocked())return;
+      quest.realm="goddess";
+      quest.goddessId="fire_goddess";
+    }else{
+      quest.realm="apostle";
+      quest.goddessId=null;
+    }
+    originalStartQuest();
+  };
+
+  /* 女神モードでは進化キャラ表示の代わりに「封印中」を扱う */
+  window.questStatus=function(){
+    if(quest.realm==="goddess"){
+      const el=document.getElementById("questCharacter");
+      const exp=document.getElementById("questExp");
+      if(el)el.innerHTML='<div class="goddessUnlockSeal"><div class="sealFlame">🔥</div><div class="sealText">火の女神の試練</div></div>';
+      if(exp)exp.textContent=`正解 ${quest.correct} / ${quest.q+1}`;
+      return;
+    }
+    originalQuestStatus();
+  };
+
+  /* 女神モードは通常のEXP進化を行わず、10問走破を目指す */
+  window.reward=function(ok,bonus=0){
+    if(quest.realm!=="goddess"){
+      return originalReward(ok,bonus);
+    }
+    if(quest.answered)return;
+
+    document.getElementById("questPlay").classList.add("answered");
+    stopQuestTimer();
+    quest.answered=true;
+
+    if(ok){
+      quest.correct++;
+      quest.exp=quest.correct*10;
+      if(typeof playSE==="function")playSE(seConfirm);
+      document.getElementById("questFeedback").innerHTML=
+        `<h2>⭕ 正解！</h2><div class="judgeExplain">🔥 火の女神の封印が少しずつ解けていく…！<br>あと ${Math.max(0,9-quest.q)} 問</div>`;
+    }else{
+      if(typeof playSE==="function")playSE(seHit);
+      document.getElementById("questFeedback").innerHTML=
+        '<h2>❌ おしい！</h2><div class="judgeExplain">まだ試練は続く。次で取り返そう！</div>';
+      if(window.KanjiGameOverV93 && window.KanjiGameOverV93.addMiss())return;
+    }
+
+    document.getElementById("evoNeedMeter")?.classList.add("hidden");
+    document.getElementById("questNext")?.classList.remove("hidden");
+    if(typeof fitQuestFeedback==="function")setTimeout(fitQuestFeedback,0);
+  };
+
+  /* 女神モードの10問を完走したら、火の女神を開放 */
+  window.finishQuest=function(){
+    if(quest.realm!=="goddess"){
+      return originalFinishQuest();
+    }
+
+    stopQuestTimer();
+    quest.q=10;
+    saveFireGoddessUnlock();
+
+    const finalCharacter=document.getElementById("finalCharacter");
+    finalCharacter.classList.remove("evolve");
+    finalCharacter.innerHTML=
+      '<div class="goddessUnlockSeal"><div class="sealFlame">🔥</div><div class="sealText">封印解除！</div></div>';
+
+    document.getElementById("finalName").textContent="🔥 火の女神を開放！";
+    document.getElementById("questSummary").textContent=
+      `小学${document.getElementById("questGrade").value}年生の試練を完走！ 10問中 ${quest.correct}問正解`;
+    document.getElementById("questAgain").textContent="女神モードへ戻る";
+
+    if(typeof playSE==="function")playSE(seBattle);
+    originalShow("questClearScreen");
+  };
+
+  /* 通常モードのクリア後にボタン文言が残らないように復元 */
+  document.getElementById("questAgain")?.addEventListener("click",()=>{
+    setTimeout(()=>{
+      if(currentRealm==="apostle"){
+        document.getElementById("questAgain").textContent="別のキャラを育てる";
+      }
+    },0);
+  });
+
+  /* 初期状態 */
+  if(!introSeen()){
+    currentRealm="apostle";
+    localStorage.setItem(REALM_KEY,"apostle");
+  }
+  updateSwitch();
+
+  window.GoddessModeV1065={
+    allTwelveUnlocked,
+    introSeen,
+    setRealm,
+    fireGoddessUnlocked
+  };
+})();
+</script>
+
+
+<script id="v1067-goddess-words-js">
+(function(){
+  const INTRO_KEY="kanjiGoddessIntroSeenV1065";
+  const SELF_KEY="kanjiGoddessWordsSelfIntroSeenV1067";
+  const LAST_KEY="kanjiGoddessWordsLastMessageV1067";
+  const GODDESS_NAME="セレナ";
+  const APOSTLE_IDS=["fire","water","forest","thunder","dark","light","wind","earth","poison","sound","dream","rainbow"];
+
+  const selfIntroductionPages=[
+    "私は女神セレナ。この漢字ゲームの女神です。このゲームで遊んでくれてありがとう。",
+    "漢字は、一文字できるようになるたびに、知っている世界が少しずつ広がっていくのです。まちがえても大丈夫。考えて、書いて、もう一度やってみた時間は、ちゃんとあなたの力になりますよ。",
+    "急がなくてもよいのです。昨日の自分より一歩すすんだら、それは立派な成長です。これからも神の使いたちといっしょに、楽しみながら漢字の冒険を続けてくださいね。私はいつでも応援しています。"
+  ];
+  let selfIntroPage=0;
+  let selfIntroActive=false;
+
+  const learningMessages=[
+    {id:"tip_big_slow",category:"📚 漢字学習のヒント",text:"漢字を覚えるときは、最初から速く書こうとしなくてよいのです。大きく、ゆっくり書くと、線の長さや形が見えやすくなりますよ。"},
+    {id:"tip_parts",category:"📚 漢字学習のヒント",text:"むずかしい漢字は、へん・つくり・かんむりなど、小さな部分に分けて見ると覚えやすいのです。大きな山も、一歩ずつ登ればよいのですよ。"},
+    {id:"tip_order",category:"📚 漢字学習のヒント",text:"書き順には、漢字をきれいに書きやすくする秘密があります。上から下へ、左から右へを意識すると、形が整いやすいのです。"},
+    {id:"tip_voice",category:"📚 漢字学習のヒント",text:"読み方を声に出しながら書くのもよい方法です。目で見て、手で書いて、耳でも聞くと、漢字をいろいろな道から覚えられるのです。"},
+    {id:"tip_compare",category:"📚 漢字学習のヒント",text:"似ている漢字に出会ったら、ちがうところを一つ探してみてください。『ここがちがう！』を見つけると、ぐっと覚えやすくなるのです。"},
+    {id:"tip_radical",category:"📚 漢字学習のヒント",text:"部首には、その漢字の意味につながる手がかりがあることがあります。さんずいなら水、きへんなら木。そんな仲間探しも楽しいのですよ。"},
+    {id:"tip_repeat",category:"📚 漢字学習のヒント",text:"一度に何十回も書くより、今日少し、明日もう一度、と日にちを分けて思い出すほうが覚えやすいこともあるのです。"},
+    {id:"tip_wrong",category:"📚 漢字学習のヒント",text:"まちがえた漢字こそ、次に強くなれる場所なのです。どこをまちがえたか一つ分かれば、それだけでも大きな前進ですよ。"},
+    {id:"tip_shape",category:"📚 漢字学習のヒント",text:"漢字は、線だけでなく全体のバランスも大切です。文字を四角いお部屋の中に入れるつもりで書くと、形がまとまりやすいのです。"},
+    {id:"tip_reading",category:"📚 漢字学習のヒント",text:"同じ漢字でも読み方が変わることがあります。言葉の中で覚えると、『このときはこの読み方』と分かりやすくなるのですよ。"}
+  ];
+
+  const encouragementMessages=[
+    {id:"cheer_step",category:"✨ セレナからの応援",text:"一問ずつでよいのです。今日できた一文字は、昨日までのあなたにはなかった新しい力なのですよ。"},
+    {id:"cheer_retry",category:"✨ セレナからの応援",text:"うまく書けなかったときこそ、もう一度挑戦するチャンスです。やり直した回数だけ、あなたの目は漢字をよく見るようになります。"},
+    {id:"cheer_effort",category:"✨ セレナからの応援",text:"正解したことだけでなく、考えたこと、ていねいに書こうとしたことも大切です。そのがんばりは、ちゃんと力になっているのです。"},
+    {id:"cheer_rest",category:"✨ セレナからの応援",text:"つかれたときは少し休んでもよいのですよ。頭も手も休ませると、さっきまで難しかった漢字が急に見えてくることがあります。"},
+    {id:"cheer_confidence",category:"✨ セレナからの応援",text:"『できるかな』と思ったら、まず一画だけ書いてみてください。一画が二画になり、気づけば一文字が完成するのです。"},
+    {id:"cheer_compare_self",category:"✨ セレナからの応援",text:"だれかとくらべなくても大丈夫です。昨日の自分より少し読めた、少しきれいに書けた。その成長を見つけてあげてくださいね。"},
+    {id:"cheer_curiosity",category:"✨ セレナからの応援",text:"知らない漢字に出会ったら、『なんだろう？』と思えることがすてきなのです。その気持ちが、新しい知識への扉になります。"},
+    {id:"cheer_fun",category:"✨ セレナからの応援",text:"勉強は、できることが増える冒険でもあります。読める漢字が増えると、本や町の看板まで、今までよりたくさん読めるようになりますよ。"}
+  ];
+
+  function introSeen(){
+    return localStorage.getItem(INTRO_KEY)==="1";
+  }
+
+  function syncWordsButton(){
+    const btn=document.getElementById("goddessWordsBtn");
+    if(!btn)return;
+    btn.classList.toggle("hidden",!introSeen());
+  }
+
+  function createParticles(){
+    const box=document.getElementById("goddessWordsParticles");
+    if(!box)return;
+    box.innerHTML="";
+    const count=42;
+    for(let i=0;i<count;i++){
+      const p=document.createElement("span");
+      p.className="goddessParticle";
+      const angle=(Math.PI*2*i/count)+(i%3)*.17;
+      const distance=170+(i%8)*42;
+      p.style.setProperty("--sx",(Math.cos(angle)*distance).toFixed(1)+"px");
+      p.style.setProperty("--sy",(Math.sin(angle)*distance*1.25).toFixed(1)+"px");
+      p.style.setProperty("--delay",(i%9)*.065+"s");
+      box.appendChild(p);
+    }
+  }
+
+  function randomInt(max){
+    if(max<=1)return 0;
+    try{
+      if(window.crypto&&crypto.getRandomValues){
+        const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%max;
+      }
+    }catch(e){}
+    return Math.floor(Math.random()*max);
+  }
+
+  function apostleMessages(){
+    const list=[];
+    try{
+      APOSTLE_IDS.forEach(id=>{
+        const c=CHARACTERS.find(x=>x.id===id);
+        const descs=(typeof COLLECTION_DESCRIPTIONS!=="undefined"&&COLLECTION_DESCRIPTIONS[id])||[];
+        if(!c||!c.names)return;
+        [1,2,3].forEach(stage=>{
+          const name=c.names[stage]||c.name;
+          const desc=descs[stage-1];
+          if(!name||!desc)return;
+          const goddessDesc=String(desc).replace(/。\s*$/,"のですよ。");
+          list.push({
+            id:`apostle_${id}_${stage}`,
+            category:"🪽 神の使いのお話",
+            text:`「${name}」はね、${goddessDesc} 神の使いたちのことを知ると、いっしょに冒険するのがもっと楽しくなるでしょう。`
+          });
+        });
+      });
+    }catch(e){}
+    return list;
+  }
+
+  function randomMessage(){
+    const candidates=[...learningMessages,...encouragementMessages,...apostleMessages()];
+    if(!candidates.length)return {id:"fallback",category:"✨ セレナからの応援",text:"今日も漢字の冒険を続けているのですね。少しずつでよいのです。あなたの一歩を応援しています。"};
+    const last=localStorage.getItem(LAST_KEY)||"";
+    const pool=candidates.filter(x=>x.id!==last);
+    const chosen=(pool.length?pool:candidates)[randomInt((pool.length?pool:candidates).length)];
+    localStorage.setItem(LAST_KEY,chosen.id);
+    return chosen;
+  }
+
+  function setMessage(message){
+    document.getElementById("goddessWordsCategory").textContent=message.category||"女神のことば";
+    document.getElementById("goddessWordsText").textContent=message.text||"";
+  }
+
+  function showSelfIntroPage(){
+    selfIntroActive=true;
+    const page=Math.max(0,Math.min(selfIntroductionPages.length-1,selfIntroPage));
+    setMessage({
+      id:"self_intro_"+page,
+      category:`👑 はじめまして ${page+1} / ${selfIntroductionPages.length}`,
+      text:selfIntroductionPages[page]
+    });
+
+    const another=document.getElementById("goddessWordsAnother");
+    if(another){
+      another.textContent=page===selfIntroductionPages.length-1
+        ? "女神のことばへ ✨"
+        : "次へ ▶";
+    }
+  }
+
+  function firstOrRandomMessage(){
+    if(localStorage.getItem(SELF_KEY)!=="1"){
+      selfIntroPage=0;
+      selfIntroActive=true;
+      return null;
+    }
+    selfIntroActive=false;
+    return randomMessage();
+  }
+
+  function openWords(){
+    if(!introSeen())return;
+    const overlay=document.getElementById("goddessWordsOverlay");
+    if(!overlay)return;
+
+    const source=document.querySelector("#goddessIntroOverlay .goddessIntroVisual img");
+    const target=document.getElementById("goddessWordsImage");
+    if(source&&target){
+      const sourceValue=source.getAttribute("src")||source.src;
+      if(sourceValue)target.setAttribute("src",sourceValue);
+    }
+
+    createParticles();
+    const initialMessage=firstOrRandomMessage();
+    if(selfIntroActive){
+      showSelfIntroPage();
+    }else{
+      setMessage(initialMessage);
+      const another=document.getElementById("goddessWordsAnother");
+      if(another)another.textContent="もう一言 ✨";
+    }
+    overlay.classList.remove("hidden","revealed","closing","playing");
+    overlay.setAttribute("aria-hidden","false");
+    void overlay.offsetWidth;
+    overlay.classList.add("playing");
+
+    setTimeout(()=>overlay.classList.add("revealed"),3400);
+    if(typeof playSE==="function"){try{playSE(seConfirm)}catch(e){}}
+  }
+
+  function closeWords(){
+    const overlay=document.getElementById("goddessWordsOverlay");
+    if(!overlay||overlay.classList.contains("hidden"))return;
+    overlay.classList.add("closing");
+    setTimeout(()=>{
+      overlay.classList.add("hidden");
+      overlay.classList.remove("revealed","closing","playing");
+      overlay.setAttribute("aria-hidden","true");
+    },430);
+  }
+
+  function anotherWord(){
+    const overlay=document.getElementById("goddessWordsOverlay");
+    if(!overlay||overlay.classList.contains("hidden"))return;
+
+    if(selfIntroActive){
+      if(selfIntroPage<selfIntroductionPages.length-1){
+        selfIntroPage++;
+        showSelfIntroPage();
+      }else{
+        // 自己紹介はここまで。以後は二度と表示しない。
+        localStorage.setItem(SELF_KEY,"1");
+        selfIntroActive=false;
+        setMessage(randomMessage());
+        const another=document.getElementById("goddessWordsAnother");
+        if(another)another.textContent="もう一言 ✨";
+      }
+    }else{
+      setMessage(randomMessage());
+    }
+
+    const box=document.querySelector("#goddessWordsOverlay .goddessDialogueBox");
+    if(box){
+      box.animate(
+        [{opacity:.35,transform:"translateY(4px)"},{opacity:1,transform:"translateY(0)"}],
+        {duration:260,easing:"ease-out"}
+      );
+    }
+    if(typeof playSE==="function"){try{playSE(seClick)}catch(e){}}
+  }
+
+  document.getElementById("goddessWordsBtn")?.addEventListener("click",openWords);
+  document.getElementById("goddessWordsAnother")?.addEventListener("click",anotherWord);
+  document.getElementById("goddessWordsClose")?.addEventListener("click",closeWords);
+
+  // 女神モード解放直後にもボタンを自動表示する。
+  const switchBox=document.getElementById("questRealmSwitch");
+  if(switchBox){
+    new MutationObserver(syncWordsButton).observe(switchBox,{attributes:true,attributeFilter:["class"]});
+  }
+  window.addEventListener("storage",syncWordsButton);
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)syncWordsButton()});
+  syncWordsButton();
+
+  window.GoddessWordsV1067={open:openWords,close:closeWords,next:anotherWord,name:GODDESS_NAME};
+})();
 </script>
 
 </body></html>
